@@ -13,7 +13,6 @@ build:
 	$(INDEX) $(PROJECT).nlo -s nomencl.ist -o $(PROJECT).nls
 	$(BUILDTEX)
 	$(BUILDTEX) -interaction nonstopmode -file-line-error $(BUILDTEX)
-	clean
 
 clean:
 	find . -name \*.acn -type f -delete
@@ -54,3 +53,6 @@ clean:
 	find . -name \*.bbl -type f -delete
 	find . -name \*bbl.bib -type f -delete
 	find . -name \*.brf -type f -delete
+	find . -name \*.nls -type f -delete
+
+.PHONY: build clean
