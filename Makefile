@@ -9,10 +9,11 @@ all: build clean
 build:
 	$(BUILDTEX)
 	$(BIBTEX) $(PROJECT)
+	$(BUILDTEX)
 	$(INDEX) $(PROJECT).idx
 	$(INDEX) $(PROJECT).nlo -s nomencl.ist -o $(PROJECT).nls
 	$(BUILDTEX)
-	$(BUILDTEX) -interaction nonstopmode -file-line-error $(BUILDTEX)
+	$(BUILDTEX) -interaction nonstopmode -file-line-error
 
 clean:
 	find . -name \*.acn -type f -delete

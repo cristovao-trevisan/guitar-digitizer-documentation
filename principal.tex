@@ -1,213 +1,145 @@
 % ----------------------------------------------------------
-% VERSÃO ORIGINAL
+% ORIGINAL Version
 % ----------------------------------------------------------
 % The Current Maintainer of this work is the abnTeX2 team, led
 % by Lauro César Araujo. Further information are available on
 % http://abntex2.googlecode.com/
 
 \documentclass[
-	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% para impressão em verso e anverso coloque twoside
-	a4paper,			% tamanho do papel.
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	brazil,			% idioma adicional para hifenização
-	french,				% idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
-	english				% o último idioma é o principal do documento
-	]{abntex2}
-
-
-% ----------------------------------------------------------
-% PACKAGES
-% ----------------------------------------------------------
-\input{configurations/packages}
+	% -- memoir class options --
+	12pt,	% font size
+	openright, % chapters begin on odd pages only (inserts blank page if needeed)
+	oneside, % or twoside
+	a4paper, % paper size
+	% -- abntex2 class options --
+	%chapter=TITLE, % uppercase chapter titles
+	%section=TITLE, % uppercase section titles
+	%subsection=TITLE, % upptercase subsection titles
+	%subsubsection=TITLE,% idem
+	% -- babel package options --
+	% french, % aditional language for hyphenation
+	% spanish, % aditional language for hyphenation
+	brazil, % aditional language for hyphenation
+	english % the last language is the main one
+]{abntex2}
 
 % ----------------------------------------------------------
-% CAPA E FOLHA DE ROSTO
-% ----------------------------------------------------------
-\input{pre-textual-pages/cover}
-
-% ----------------------------------------------------------
-% CONFIGURAÇÕES
+\input{configurations/packages} % PACKAGES
 % ----------------------------------------------------------
 
-% Configurações de aparência do PDF final
+% ----------------------------------------------------------
+\input{pre-textual-elements/cover} % COVER AND COVER SHEET
+% ----------------------------------------------------------
 
-% alterando o aspecto da cor azul
+% ------------------------------------------------------------------------
+% CONFIGURATIONS
+% ------------------------------------------------------------------------
+
+% changing blue color appearance
 \definecolor{blue}{RGB}{41,5,195}
 
-% informações do PDF
+% pdf file information
 \makeatletter
 \hypersetup{
-        %pagebackref=true,
-        pdftitle={\@title},
-        pdfauthor={\@author},
-        pdfsubject={\printpreamble},
-        pdfcreator={LaTeX with abnTeX2},
-        pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
-        colorlinks=true,            % false: boxed links; true: colored links
-        linkcolor=blue,             % color of internal links
-        citecolor=blue,             % color of links to bibliography
-        filecolor=magenta,              % color of file links
-        urlcolor=blue,
-        bookmarksdepth=4
+	% pagebackref=true,
+	pdftitle={\@title},
+	pdfauthor={\@author},
+	pdfsubject={\printpreamble},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
+	colorlinks=true, % false: boxed links; true: colored links
+	linkcolor=blue, % color of internal links
+	citecolor=blue, % color of links to bibliography
+	filecolor=magenta, % color of file links
+	urlcolor=blue,
+	bookmarksdepth=4
 }
 \makeatother
 
-% Espaçamentos entre linhas e parágrafos
-% O tamanho do parágrafo é dado por:
+% Spacing between lines and paragraphs
 \setlength{\parindent}{1.3cm}
 
-% Controle do espaçamento entre um parágrafo e outro:
+% Spacing between paragraphs
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
 
-% compila o indice
+% compiles the index
 \makeindex
 \makenomenclature
-% ----------------------------------------------------------
-% INÍCIO DOCUMENTO
-% ----------------------------------------------------------
-\begin{document}
 
-% Retira espaço extra obsoleto entre as frases.
+% ----------------------------------------------------------
+\begin{document} % BEGIN DOCUMENT
+% ----------------------------------------------------------
+
+% Remove the obsolete space between lines
 \frenchspacing
 
-% ----------------------------------------------------------
-% ELEMENTOS PRÉ-TEXTUAIS
-% ----------------------------------------------------------
-% \pretextual
+% ------------------------------------------------------------------------------
+\pretextual % PRE TEXTUAL ELEMENTS
+% ------------------------------------------------------------------------------
 
-% Capa
+% cover
 \printcover
 
-% Folha de rosto
-% (o * indica que haverá a ficha bibliográfica)
+% coversheet
+% (* teels to build a bibliographic record)
 \printcoversheet*
 
-\input{pre-textual-pages/catalographic-card}
-\input{pre-textual-pages/errata}
-\input{pre-textual-pages/approval-sheet}
-\input{pre-textual-pages/dedication}
-\input{pre-textual-pages/acknowledgements}
-\input{pre-textual-pages/inscription}
-\input{pre-textual-pages/summarys}
+\input{pre-textual-elements/catalographic-card}
+\input{pre-textual-elements/errata}
+\input{pre-textual-elements/approval-sheet}
+\input{pre-textual-elements/dedication}
+\input{pre-textual-elements/acknowledgements}
+\input{pre-textual-elements/inscription}
+\input{pre-textual-elements/summarys}
 
-
-% ----------------------------------------------------------
-% inserir lista de ilustrações
-% ----------------------------------------------------------
+% list of figures
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
 
-% ----------------------------------------------------------
-% inserir lista de tabelas
-% ----------------------------------------------------------
+% list of tables
 \pdfbookmark[0]{\listtablename}{lot}
 \listoftables*
 \cleardoublepage
 
-% ----------------------------------------------------------
-% inserir lista siglas e abreviaturas
-% ----------------------------------------------------------
-\input{pre-textual-pages/acronyms}
+\input{pre-textual-elements/acronyms}
 
-% ----------------------------------------------------------
-% inserir lista símbolos
-\input{pre-textual-pages/symbols}
-% ----------------------------------------------------------
+\input{pre-textual-elements/symbols}
 
-% ----------------------------------------------------------
-% inserir o sumario
-% ----------------------------------------------------------
+% Summary
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage
 
-% ----------------------------------------------------------
-% ELEMENTOS TEXTUAIS
-% ----------------------------------------------------------
-\textual
+% ------------------------------------------------------------------------------
+\textual % TEXTUAL ELEMENTS
+% ------------------------------------------------------------------------------
 
-\include{elementos-textuais/introducao}
+\include{textual-elements/introduction}
 
-% ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-\part{Preparação da pesquisa}
+\part{Research Preparation}
+\include{textual-elements/chapter-1}
 
-% ----------------------------------------------------------
-% Capitulo com exemplos de comandos inseridos de arquivo externo
-% ----------------------------------------------------------
-\include{elementos-textuais/capitulo-1}
+\part{Useful Tips}
+\include{textual-elements/chapter-2}
 
-% ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-\part{Dicas de úteis}
+\input{textual-elements/conclusion}
+\index{conclusion}
 
-% ----------------------------------------------------------
-% Capitulo com exemplos de comandos inseridos de arquivo externo
-% ----------------------------------------------------------
-\include{elementos-textuais/capitulo-2}
-% ----------------------------------------------------------
+% ------------------------------------------------------------------------
+\postextual % POST TEXTUAL ELEMENTS
+% ------------------------------------------------------------------------
 
-% Finaliza a parte no bookmark do PDF
-% para que se inicie o bookmark na raiz
-% e adiciona espaço de parte no Sumário
-% ----------------------------------------------------------
-\phantompart
+\bibliography{post-textual-elements/references}
 
-% ----------------------------------------------------------
-% Conclusão (outro exemplo de capítulo sem numeração e presente no sumário)
-% ----------------------------------------------------------
-\chapter*[Conclusão]{Conclusão}
-\addcontentsline{toc}{chapter}{Conclusão}
-% ----------------------------------------------------------
-\input{elementos-textuais/conclusao}
-
-% ----------------------------------------------------------
-% ELEMENTOS PÓS-TEXTUAIS
-% ----------------------------------------------------------
-\postextual
-% ----------------------------------------------------------
-
-% ----------------------------------------------------------
-% Referências bibliográficas
-% ----------------------------------------------------------
-\bibliography{elementos-postextuais/referencias}
-
-% ----------------------------------------------------------
-% Glossário
-% ----------------------------------------------------------
-%
-% Consulte o manual da classe abntex2 para orientações sobre o glossário.
-%
 %\glossary
 
-% ----------------------------------------------------------
-% Apêndices
-% ----------------------------------------------------------
-\input{elementos-postextuais/apendices}
+\input{post-textual-elements/appendices}
 
+\input{post-textual-elements/annexes}
 
-% ----------------------------------------------------------
-% Anexos
-% ----------------------------------------------------------
-\input{elementos-postextuais/anexos}
-
-%---------------------------------------------------------------------
-% INDICE REMISSIVO
-%---------------------------------------------------------------------
+% Remissive index
 \phantompart
 \printindex
-%---------------------------------------------------------------------
 
 \end{document}
