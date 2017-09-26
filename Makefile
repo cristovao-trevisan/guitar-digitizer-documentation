@@ -1,4 +1,4 @@
-PROJECT=principal
+PROJECT=main
 TEX=pdflatex
 BIBTEX=bibtex
 INDEX=makeindex
