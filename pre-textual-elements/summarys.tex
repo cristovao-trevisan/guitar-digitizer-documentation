@@ -1,0 +1,46 @@
+\setlength{\absparsep}{18pt} % adjust the spacing of paragraphs
+
+% summary in english
+\begin{summary}[Abstract]
+  This is the english abstract.
+
+  \textbf{Key-words}: latex. abntex. text editoration.
+\end{summary}
+
+% summary in portuguese
+\begin{summary}[Resumo]
+  \begin{otherlanguage*}{portuguese}
+    Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o summary deve ressaltar o
+    objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
+    destes itens dependem do tipo de summary (informativo ou indicativo) e do
+    tratamento que cada item recebe no documento original. O summary deve ser
+    precedido da referência do documento, com exceção do summary inserido no
+    próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
+    summary, antecedidas da expressão Palavras-chave:, separadas entre si por
+    ponto e finalizadas também por ponto.
+
+    \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+  \end{otherlanguage*}
+
+\end{summary}
+
+% ----------------------------- NOT COMPILED -----------------------------------
+\iffalse
+% summary in french
+\begin{summary}[Résumé]
+ \begin{otherlanguage*}{french}
+    Il s'agit d'un résumé en français.
+
+   \textbf{Mots-clés}: latex. abntex. publication de textes.
+ \end{otherlanguage*}
+\end{summary}
+
+% summary in spanish
+\begin{summary}[summaryn]
+ \begin{otherlanguage*}{spanish}
+   Este es el summaryn en español.
+
+   \textbf{Palabras clave}: latex. abntex. publicación de textos.
+ \end{otherlanguage*}
+\end{summary}
+\fi
