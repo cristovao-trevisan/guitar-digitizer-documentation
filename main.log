@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.7)  30 SEP 2017 17:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.7)  7 OCT 2017 00:10
 entering extended mode
 **./main.tex
 (main.tex
@@ -1306,119 +1306,142 @@ Package babel Warning: Unknown language `portuguese'. Either you have
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 11.
 
-Overfull \hbox (7.54729pt too wide) in paragraph at lines 31--31
+Overfull \hbox (7.54729pt too wide) in paragraph at lines 35--35
  [][] [][][]\T1/lmss/bx/n/12 NULLAM EL-E-MEN-TUM URNA VEL IM-PERDIET 
  []
 
 
-Overfull \hbox (2.41129pt too wide) in paragraph at lines 31--31
+Overfull \hbox (2.41129pt too wide) in paragraph at lines 35--35
  \T1/lmss/bx/n/12 SO-DALES ELIT IP-SUM PHARE-TRA LIGULA AC 
  []
 
 
-Overfull \hbox (5.4115pt too wide) in paragraph at lines 31--31
+Overfull \hbox (5.4115pt too wide) in paragraph at lines 35--35
  \T1/lmss/bx/n/12 PRETIUM ANTE JUSTO A NULLA CUR-ABITUR 
  []
 
 ) [12
 
-] (textual-elements/introduction.tex
+] [13] (textual-elements/introduction.tex
 
-LaTeX Warning: Citation `abntex2classe' on page 13 undefined on input line 15.
+LaTeX Warning: Citation `abntex2classe' on page 14 undefined on input line 15.
 
 
-LaTeX Warning: Citation `abntex2-wiki-como-customizar' on page 13 undefined on 
+LaTeX Warning: Citation `abntex2-wiki-como-customizar' on page 14 undefined on 
 input line 30.
 
 
-LaTeX Warning: Citation `abntex2classe' on page 13 undefined on input line 33.
+LaTeX Warning: Citation `abntex2classe' on page 14 undefined on input line 33.
 
 
-LaTeX Warning: Citation `abntex2cite' on page 13 undefined on input line 33.
+LaTeX Warning: Citation `abntex2cite' on page 14 undefined on input line 33.
 
 
-LaTeX Warning: Citation `abntex2cite-alf' on page 13 undefined on input line 33
+LaTeX Warning: Citation `abntex2cite-alf' on page 14 undefined on input line 33
 .
 
 
-LaTeX Warning: Citation `memoir' on page 13 undefined on input line 34.
+LaTeX Warning: Citation `memoir' on page 14 undefined on input line 34.
 
-) (textual-elements/hardware/all.tex [13
+) (textual-elements/hardware/all.tex [14
 
 
-] [14
+] [15
 
 ]
 (textual-elements/hardware/hw.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
 
-LaTeX Warning: File `Capt.PNG' not found on input line 6.
+ []
+
+<textual-elements/hardware/Capt.png, id=159, 259.7203pt x 158.09062pt>
+File: textual-elements/hardware/Capt.png Graphic file (type png)
+
+<use textual-elements/hardware/Capt.png>
+Package pdftex.def Info: textual-elements/hardware/Capt.png used on input line 
+10.
+(pdftex.def)             Requested size: 129.85983pt x 79.0451pt.
+
+<textual-elements/hardware/ima.jpg, id=161, 501.875pt x 469.755pt>
+File: textual-elements/hardware/ima.jpg Graphic file (type jpg)
+
+<use textual-elements/hardware/ima.jpg>
+Package pdftex.def Info: textual-elements/hardware/ima.jpg used on input line 1
+8.
+(pdftex.def)             Requested size: 150.56366pt x 140.92758pt.
+ [16
+
+ <./textual-elements/hardware/Capt.png> <./textual-elements/hardware/ima.jpg>]
+<textual-elements/hardware/Texas.png, id=167, 497.60907pt x 167.87718pt>
+File: textual-elements/hardware/Texas.png Graphic file (type png)
+
+<use textual-elements/hardware/Texas.png>
+Package pdftex.def Info: textual-elements/hardware/Texas.png used on input line
+ 33.
+(pdftex.def)             Requested size: 398.08778pt x 134.30193pt.
+
+<textual-elements/hardware/INA.jpg, id=168, 477.28313pt x 366.61969pt>
+File: textual-elements/hardware/INA.jpg Graphic file (type jpg)
+
+<use textual-elements/hardware/INA.jpg>
+Package pdftex.def Info: textual-elements/hardware/INA.jpg used on input line 4
+5.
+(pdftex.def)             Requested size: 334.0959pt x 256.63202pt.
+ [17 <./textual-elements/hardware/Texas.png>] <textual-elements/hardware/INAsch
+.png, id=179, 628.9899pt x 1599.576pt>
+File: textual-elements/hardware/INAsch.png Graphic file (type png)
+
+<use textual-elements/hardware/INAsch.png>
+Package pdftex.def Info: textual-elements/hardware/INAsch.png used on input lin
+e 60.
+(pdftex.def)             Requested size: 283.04283pt x 719.80257pt.
 
 
-! Package pdftex.def Error: File `Capt.PNG' not found.
+LaTeX Warning: Float too large for page by 43.13588pt on input line 62.
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6 \includegraphics[scale=1]{Capt.PNG}
-                                       
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 6.
-("C:\Users\Victor\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-))
-(textual-elements/firmware/all.tex [15
-
-] [16
+)) (textual-elements/firmware/all.tex [18 <./textual-elements/hardware/INA.jpg>
+] [19 <./textual-elements/hardware/INAsch.png (PNG copy)>] [20
 
 ])
-(textual-elements/software/all.tex [17
+(textual-elements/software/all.tex [21
 
 ])
-(textual-elements/results-and-discussions/all.tex [18
+(textual-elements/results-and-discussions/all.tex [22
 
 ])
 (textual-elements/conclusion.tex)
 No file main.bbl.
-(post-textual-elements/appendices.tex [19
+(post-textual-elements/appendices.tex [23
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 5.
 
-[20
+[24
 
-
-] [21
-
-]) (post-textual-elements/annexes.tex [22
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\uppercase' on input line 5.
-
-[23
-
-
-] [24
 
 ] [25
+
+]) (post-textual-elements/annexes.tex [26
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\uppercase' on input line 5.
+
+[27
+
+
+] [28
+
+] [29
 
 ])
 No file main.ind.
 
 AED: lastpage setting LastPage
-[26
+[30
 
 ]
 \tf@lof=\write6
@@ -1442,29 +1465,34 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
  ) 
 Here is how much of TeX's memory you used:
- 14640 strings out of 493323
- 221036 string characters out of 3129582
+ 14649 strings out of 493323
+ 221432 string characters out of 3129582
  469160 words of memory out of 3000000
- 17758 multiletter control sequences out of 15000+200000
- 76343 words of font info for 96 fonts, out of 3000000 for 9000
+ 17748 multiletter control sequences out of 15000+200000
+ 83428 words of font info for 100 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,12n,38p,397b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.e
-nc}{C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.
-enc}<C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lm
-bx12.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-lm/lmr10.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmr12.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/lm/lmr7.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/lm/lmr8.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/lm/lmri12.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/lm/lmss12.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/lm/lmss17.pfb><C:/Users/Victor/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Victor/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main.pdf (27 pages, 285317 bytes).
+ 45i,12n,38p,464b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-math
+sy.enc}{C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm
+-rm.enc}{C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/l
+m-mathit.enc}{C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips
+/lm/lm-ec.enc}<C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/lm/lmbx12.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/lm/lmmi12.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/lm/lmr10.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/lm/lmr12.pfb><C:/Users/Victor/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/lm/lmr7.pfb><C:/Users/Victor/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/Victor/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Users/Victor/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/Victor/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss12.pfb><C:/Users/Victor/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmss17.pfb><C:/Users/Victor/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Vict
+or/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users
+/Victor/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb>
+Output written on main.pdf (31 pages, 532751 bytes).
 PDF statistics:
- 321 PDF objects out of 1000 (max. 8388607)
- 71 named destinations out of 1000 (max. 500000)
- 25289 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 393 PDF objects out of 1000 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 27394 words of extra memory for PDF output out of 29859 (max. 10000000)
 
