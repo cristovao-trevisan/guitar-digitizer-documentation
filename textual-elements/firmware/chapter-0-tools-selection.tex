@@ -1,0 +1,48 @@
+\chapter{Tools Selection}
+\label{tools-selection}
+The firmware is basically an analog sampler, all it has to do is sample six analog
+channels, add a header (to identify the beginning and check continuity) and send it
+through USB. Lets start by listing the requirements for the hardware.
+
+\section{Requirements}
+\begin{itemlist}
+  \item Super cheap
+  \item 6 analog channels (more precision is better)
+  \item High sample rate (at least 10 kHz for each channel, but ideally 44 kHz or more)
+  \item Fast USB support, to send the data with headers
+\end{itemlist}
+Based on this requirements the minimum transfer speed can be calculated, let's
+consider that a header will be set for every 252 samples (42 for each channel) and
+it has 4 bytes (3 of identification - to assure it is the header and not some
+data - and a counter). Previewing the worst case, each sample is 2 bytes long.
+The transfer rate given by \autoref{usb-generic-rate-equation}.
+
+\begin{equation}
+  \label{usb-generic-rate-equation}
+  transfer\ rate = \left( \frac{channels * \frac{bytes}{sample} * \frac{samples}{package} + header\ size}{\frac{samples}{package}}  \right ) * f_{s} [B/s]
+\end{equation}
+
+Considering that $f_{s}$ has to be somewhere between 10 kHz and 50 kHz the transfer
+rate the numerical result is given by \autoref{usb-numerical-rate-equation}.
+
+\begin{equation}
+  \label{usb-numerical-rate-equation}
+  transfer\ rate = \left( \frac{6 * 2 * 252 + 4}{252}  \right ) * f_{s} = 12.0159 * f_{s} = 120.159 - 600.794 [kB/s]
+\end{equation}
+
+USB transfer speed is usually refered in Mbps, which gives us a range between
+961.27 and 4806.34 Mbps. This is too high for serial communication (typical max of
+1 Mbps) so we need to add a requirement for raw USB support, which allows bulk
+transfer that can a have transfer rate up to 12Mbps (USB full-speed standard).\\
+We still need to choose or exact sample rate ($f_{s}$), but first let's select which
+hardware will be used.
+
+\section{Microcontroller Selection}
+There are too many microcontrollers that fit our requirements, but the most popular
+and cheap one is clearly the ARM from ST called STM32F103C8T6, and that is why it
+was selected. \\
+It has eight 12 bits ADC inputs (with 2 parallel channels), DMA for the ADCs and USB full-speed support. It's
+also relatively fast (72 MHz clock, 32 bits architecture). All this for under 2 U\$D
+in a developing board from China (the actual $\mu$C is under 0.2 U\$). \\
+
+\section{Program}
