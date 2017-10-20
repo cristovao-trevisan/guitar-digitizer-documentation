@@ -1,15 +1,24 @@
 \chapter{Amplifier Circuits}
-It was researched some types of amplifiers circuits, it was selected the circuits
+\textit{Amplifiers circuits} \cite{amplifier-circuit} are circuits which increases an electrical input signal according
+to a specific transformation function (gain) for each different topology on the output. The circuit for small input signals
+normally is composed by an operational amplifier, resistors, trimmer potentiometers to adjust the gain and capacitors.\\
+
+It was required by the project TO DO - COMPLETE UPDATE
+
+
+It was researched some types of amplifiers circuits on \textit{book} \cite{Millmann} and on supplier \textir{catalogue} \cite{OpAmps}.
+
+it was selected the circuits
 with single supply, because the project was designed to be the maximum embedded
 on the guitar, without the needing of other supplies except the guitar battery
 or the USB connection of the microprocessor.
 After some researches it was decided try two circuit types, with two different
 operational amplifiers. The first circuit uses the Texas Instruments INA 326
-Instrumental Amplifier and the second uses the Texa Instruments TLV 4316 Operational Amplifier.
+Instrumental Amplifier and the second uses the Texas Instruments TLV 4316 Operational Amplifier.
 
 \section{INA 326}
 The project using the INA 326 IC, started with a research at the datasheet of
-this compnent and it was verified one circuit which provides the desired Gain to
+this component and it was verified one circuit which provides the desired Gain to
 the electric signal from the pickup respecting the project's initial requests.
 The circuit is shown on figure 3.
 
@@ -46,7 +55,7 @@ $$G=100$$
 The amplifier circuit was projected to each channel. So the circuit needed 6 IC
 INA 326 to be complete. The complete schematic is showed on annex 1. After project
 the schematic circuit to each channel it was developed the PCB project, using the
-same software described on the schematic modelling. The PCI project is showed on figure 5.\\
+same software described on the schematic modeling. The PCI project is showed on figure 5.\\
 
 This PCB project was projected on a dual layer board scheme, using 15 mils of
 minimum width for the conductive tracks. It was assembled on FR4 dual layer copper
@@ -73,7 +82,7 @@ On this project it was used:
 \item 6 Instrumental Amplifiers INA 326;
 \item 6 10k$\Omega$ Trimmer Potentiometer;
 \item 6 10nF Ceramic Capacitor;
-\item 6 100nF x 50V Electrolitic Capacitor;
+\item 6 100nF x 50V Electrolytic Capacitor;
 \item 12 10k$\Omega$ 5 Percent Tolerance Resistor;
 \item 12 1M$\Omega$ 5 Percent Tolerance Resistor;
 \item 1 6 positions Pin bar;
