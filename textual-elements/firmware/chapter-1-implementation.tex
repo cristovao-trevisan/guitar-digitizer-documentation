@@ -1,0 +1,38 @@
+\chapter{Implementation}
+\label{firmware-implementation}
+
+\section{First Attempt}
+We first tried to build our firmware from scratch, using the tools given by the
+manufacturer, essentially a set of driver abstractions (HAL drivers). The problem
+found is that these abstractions are too slow, and don't work when the firmware
+uses the hardware close to it's limits (as we do for both transfer and sampling rates).
+
+\section{Second Attempt}
+In our research we found an amazing open source project called MiniScope \cite{MiniScope},
+in which a few options of low budget DIY digital scope (using different $\mu$Cs) are
+presented. One of the $\mu$Cs used by MiniScope is the one we selected, so for our
+implementation we took it's firmware as a base project. In this project the author
+claims to sample and transfer two channels at 461 kHz (but 8 bits only), which is
+very close to our needs (we need a little more transfer but much less sampling speed).
+
+\section{IDE}
+As we take MiniScope as a base project we will be using the same IDE as it, named
+CooCox \cite{CooCox}. It has a full set of tools, and it's completely free (no limitations).
+
+\section{Modifications}
+The base project samples 2 channels at a different speed, bit rate and does not
+add any headers to the data. It also has some code to answer a few commands. It
+was as simple as setting up the registers for 6 channels, changing the sample size,
+placing our already chosen speed (\autoref{firmware-sample-frequency}) and removing
+any unused code. \\
+The act of changing the sample size was not done by registers. MiniScope was already
+sampling with 12 bits, but it was ignoring the least significant ones when filling
+the USB buffer. What we have done is to change the bits alignment and putting all
+the data received from the ADC to the USB buffer.
+
+\section{Testing}
+At first an attempt using the OS (Windows at that time, later Ubuntu) default driver
+as made. That did not work well, as it is too generic and thus slow. \\
+At a second try, a simple libusb \cite{libusb} program was built to test the transfer
+rate (calculated in \autoref{firmware-sample-frequency}). The reported result is
+almost perfectly the calculated one.

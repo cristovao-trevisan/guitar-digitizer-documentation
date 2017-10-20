@@ -1,5 +1,6 @@
-\chapter{Tools Selection}
-\label{tools-selection}
+\chapter{Specifications}
+\label{firmware-specifications}
+
 The firmware is basically an analog sampler, all it has to do is sample six analog
 channels, add a header (to identify the beginning and check continuity) and send it
 through USB. Lets start by listing the requirements for the hardware.
@@ -23,7 +24,7 @@ The transfer rate given by \autoref{usb-generic-rate-equation}.
 \end{equation}
 
 Considering that $f_{s}$ has to be somewhere between 10 kHz and 50 kHz the transfer
-rate the numerical result is given by \autoref{usb-numerical-rate-equation}.
+rate numerical result is given by \autoref{usb-numerical-rate-equation}.
 
 \begin{equation}
   \label{usb-numerical-rate-equation}
@@ -44,8 +45,18 @@ and that is why it was selected. \\
 It has eight 12 bits ADC inputs (with 2 parallel channels), DMA for the ADCs and USB full-speed support. It's
 also relatively fast (72 MHz clock, 32 bits architecture). All this for under 2 U\$D
 in a developing board from China (the actual $\mu$C is under 0.2 U\$). \\
+The board an it's pinout can be seen in \autoref{STM32F103-board}.
+
+\begin{figure}[htb]
+  \centering
+  \caption{STM32F103C8T6 Board}
+  \label{STM32F103-board}
+  \includegraphics[scale=0.3]{images/STM32F103-board.png}
+  \legend{Source: \citeonline{STM32F103-board-image}}
+\end{figure}
 
 \section{Sample Frequency}
+\label{firmware-sample-frequency}
 Usage of the ADCs for the selected $\mu$C can be optimized by using continuous sampling
 mode in conjunction with DMA \cite[ch. 11]{STM32F103}. In this mode the sample frequency is controlled by a register
 that sets the convolution time, which gives more precision the more ADC clock
@@ -54,7 +65,7 @@ The first variable chosen for this setup is the ADC clock, which is set by divid
 the $\mu$C clock by 2, 4, 6 or 8. The ADC also has a maximum clock of 14 MHz. Taking in
 account the  $\mu$C clock of 72 MHz, the highest possible value for the ADC clock is 12 MHz,
 which is set by a divider value of 6. \\
-The last value to be chosen is the mentioned convolution time ($T_{c}$ calculate as the selected
+The last value to be chosen is the mentioned convolution time ($T_{c}$ is calculated as the selected
 value plus 12.5 ADC clock cycles), which gives a sample frequency calculate by \autoref{ADC-sampling-time}.
 
 \begin{equation}
@@ -63,7 +74,9 @@ value plus 12.5 ADC clock cycles), which gives a sample frequency calculate by \
 \end{equation}
 \autoref{ADC-sampling-frequencies} shows the calculated results for each possible
 register value (using \autoref{ADC-sampling-time}). Based on it the chosen sampling
-frequency is 47.619 kHz.
+frequency is 47.619 kHz. By using \autoref{usb-numerical-rate-equation} we can also
+calculate the actual data transfer rate (for all channels, including header),
+resulting in a total of 572,185 kHz. This last value will be used to test the USB communication.
 
 \begin{table}[htb]
   \caption{ADC Sampling Frequencies}
@@ -87,4 +100,5 @@ frequency is 47.619 kHz.
     \hline
     111 & 239.5 & 15.87 \\
   \end{tabular}
+  \legend{Source: made by authors}
 \end{table}
