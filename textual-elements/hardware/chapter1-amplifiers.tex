@@ -27,7 +27,7 @@ the electric signal from the pickup respecting the project's initial requests.
 \legend{Source: \citeonline{INA326}}
 \end{figure}
 
-This circuit amplifies the input signal and the gain is obtained by the following equation \autoref{INA_Gain} provided by the \textit{component datasheet}
+This circuit amplifies the input signal and the gain is obtained by the \autoref{INA_Gain} provided by the \textit{component datasheet}
 \cite{INA326}:
 
 \begin{equation}
@@ -51,14 +51,14 @@ until the final version.
 \end{figure}
 
 Using the components values showed on the circuit \autoref{INA_Schematic} it is possible calculate
-the Gain of the circuit as the equation\autoref{Gain} shows
+the Gain of the circuit as the \autoref{Gain} shows
 
 \begin{equation}
   \label{Gain}
-G=2*\frac{(1M\Omega||1M\Omega)}{10k\Omega}\\
-G=2*\frac{500k\Omega}{10k\Omega}\\
-G=2*50\\
-G=100
+G=2*\frac{(1M\Omega||1M\Omega)}{10k\Omega}
+=2*\frac{500k\Omega}{10k\Omega}
+=2*50
+=100
 \end{equation}
 
 The amplifier circuit was projected to each channel as showed on \autoref{INA_complete}.
@@ -78,7 +78,7 @@ the PCB was like showed on \autoref{PCB}.\\
 \centering
 \caption{Projected INA PCB}
 \label{INA_PCB}
-\includegraphics[scale=1.5]{images/TCC_INA}
+\includegraphics[scale=1.8]{images/TCC_INA}
 \legend{Source: made by authors}
 \end{figure}
 
@@ -111,7 +111,10 @@ to a pick of 1V, proving that the circuit is working perfectly and attending the
 demand of the project. After the bench test the system was connected to the pickup
 to verify if the guitar signal would be amplified as needed to the conversion process.
 The result was satisfactory and attended well the purpose to the project, as showed on \autoref{INA_result}.
-
+\\
+\\
+\\
+\\
 \begin{figure}[!htpb]
 \centering
 \caption{Amplified pickup signal}
@@ -121,5 +124,8 @@ The result was satisfactory and attended well the purpose to the project, as sho
 \end{figure}
 
 \section{TLV 4316}
-The project of TLV 4316 started on the same way of the INA 326 project.
-It started verifying the datasheet
+The circuit using TLV 4316 started on the same way of the INA 326 project.
+It started verifying the \textit{component datasheet} \cite{TLV4316} and the \textit{supplier cataloge} \cite{OpAmps}.
+On these documents it was verified some strategies, which are used on this project. For this IC it was needed use the
+concept of \textit{Virtual gounding} \cite{OpAmps}, neede to the operation of a comon Operational Amplifier on a single
+supply configuration
