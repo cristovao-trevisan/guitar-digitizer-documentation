@@ -109,7 +109,7 @@ as in \autoref{reducers-table}.
   \centering
   \begin{tabular}{c|c|c|c}
     \textbf{Name} & \textbf{Data Type} & \textbf{Actions} & \textbf{Used for} \\
-    \hline
+		\hline \hline
 		device & string & set, remove & current selected device \\
 		\hline
 		devices & string[ ] & add, remove & list of devices \\
@@ -125,7 +125,44 @@ as in \autoref{reducers-table}.
 																					& & & Signal to MIDI connections \\
 
   \end{tabular}
-  \legend{Fonte: made by authors}
+  \legend{Source: made by authors}
+\end{table}
+
+\subsection{Note Calculation}
+To calculate the note a few steps are shown in \autoref{note-detection-diagram}.
+The amplitude calculation is a simple absolute avareage removing the mean. The
+pitch within range is a function that limits each string frequency to
+being close to it's know possible values, as in \autoref{pitch-range-table}.
+\begin{figure}[htb]
+	\caption{Note Detection Diagram}
+	\label{note-detection-diagram}
+	\begin{center}
+		\includegraphics[width=0.7\paperwidth]{images/note-detection-flow-diagram.pdf}
+	\end{center}
+	\legend{Source: made by authors}
+\end{figure}
+
+\begin{table}[htb]
+  \ABNTEXreducedfont
+  \caption[Pitch Range]{Pitch Range}
+  \label{pitch-range-table}
+  \centering
+  \begin{tabular}{c|c|c}
+    \textbf{String} & \textbf{Min. Freq.[Hz]} & \textbf{Max. Freq.[Hz]} \\
+		\hline \hline
+		E & 70 & 265 \\
+		\hline
+		A & 95 & 350 \\
+		\hline
+		D & 130 & 470 \\
+		\hline
+		G & 170 & 625 \\
+		\hline
+		B & 215 & 785 \\
+		\hline
+		e & 290 & 1050 \\
+  \end{tabular}
+  \legend{Source: made by authors}
 \end{table}
 
 \subsection{Tests}

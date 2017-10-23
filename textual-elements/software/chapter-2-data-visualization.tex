@@ -22,7 +22,7 @@ project at both GitHub and npm \cite{react-plotter}.
 \end{itemlist}
 
 \section{Algorithm}
-Triggering and buffering are achived by using a filter that only calls the ploting
+Triggering and buffering are achieved by using a filter that only calls the plotting
 function when the options are met. This filter is simply the function called to
 add data, and it is represented by \autoref{react-plotter-add-diagram}. \\
 \begin{figure}[htb]
@@ -59,7 +59,7 @@ for which the chart is drawn (when needed), they are listed in \autoref{react-pl
   \centering
   \begin{tabular}{c|c|c}
     \textbf{Property} & \textbf{Type} & \textbf{Description} \\
-    \hline
+    \hline \hline
     style &	Function & Style function (called to print the data) \\
     \hline
     {[trigger]} &	number & Use trigger \\
@@ -85,7 +85,7 @@ for which the chart is drawn (when needed), they are listed in \autoref{react-pl
     \hline
     {[useMean=true]} & bool & Use mean calculation, otherwise median  \\
   \end{tabular}
-  \legend{Fonte: \citeonline{react-plotter}}
+  \legend{Source: \citeonline{react-plotter}}
 \end{table}
 The style property is a function that is called to render each point. Two styles
 were built, a line plot (points are connected by a straight line) and a digital

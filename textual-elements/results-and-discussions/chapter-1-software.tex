@@ -1,0 +1,27 @@
+\chapter{Software Results and Discussions}
+
+\section{Results}
+TODO: measurements and analysis
+
+\section{Future Improvements}
+\subsection{Note Detection}
+Real time note detection proved not to be so accurate. Legato (connected) notes
+may cause a middle note detection and there are misdetections (mostly at frequency
+transitions). It works well enough for live play of MIDI instruments, but not
+for music notation. \\
+For real world music notation a different solution is needed: record the signals
+and post-process them. This way it is possible to use a more detailed analysis
+of each signal and thus get very good results, as there is much more computing
+power available when not being limited by real-time processing.
+
+\subsection{Performance}
+Though real time analysis work, a few limitations were detected. Buffering can only
+process each data point one time (can't use a sliding buffer that recycles data).
+This means that we are close to the processing limits, due to two causes: single
+core processing and slow algorithms. \\
+One step of the solution is to use multi-core processing for the pitch detection,
+which can be done using Node.js support for it. \\
+As already stated (\autoref{pitch-detection-implementation}) the current implementation
+uses quadratic growth algorithms, when they can be implemented with logarithmic
+growth. Fixing this will improve the performance to a point where multi-core processing
+won't be even needed.

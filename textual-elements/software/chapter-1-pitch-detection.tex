@@ -13,7 +13,7 @@ range, known as octave.
     \begin{tabular}{c|c}
       \hline
       Note Name & Frequency\\
-      \hline
+      \hline \hline
       A & 440.00 \\
       A\# & 466.16 \\
       B & 493.88 \\
@@ -75,6 +75,7 @@ the detection of the neighbors, thus the possibility of some tuning. As we will
 see this gave the best results for our project after some tuning.
 
 \section{Implementation}
+\label{pitch-detection-implementation}
 Implementation for both algorithms follow the same pattern, taking the pretty
 Java code of TarsosDSP \cite{TarsosDSP} and replacing the syntax and data structures
 with C++ ones (using standard library for containers). There is also a JavaScript bridge
