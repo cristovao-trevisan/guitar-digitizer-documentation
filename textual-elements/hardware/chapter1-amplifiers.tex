@@ -50,6 +50,9 @@ until the final version.
 \legend{Source: made by authors}
 \end{figure}
 
+It was decided to use trimmer potentiometers on the amplification circuit to be possible perform small and precise adjustments to each
+channel. These adjustments was on order to waranty the best relation of the gain to the channels.
+
 Using the components values showed on the circuit \autoref{INA_Schematic} it is possible calculate
 the Gain of the circuit as the \autoref{Gain} shows
 
@@ -97,8 +100,8 @@ On this project it was used:
 \item 6 10k$\Omega$ Trimmer Potentiometer;
 \item 6 10nF Ceramic Capacitor;
 \item 6 100nF x 50V Electrolytic Capacitor;
-\item 12 10k$\Omega$ 5 Percent Tolerance Resistor;
-\item 12 1M$\Omega$ 5 Percent Tolerance Resistor;
+\item 12 10k$\Omega$ $\frac{1}{4}W$ 5 Percent Tolerance Resistor;
+\item 12 1M$\Omega$ $\frac{1}{4}W$ 5 Percent Tolerance Resistor;
 \item 1 6 positions Pin bar;
 \item 1 12 positions dual track Pin bar;
 \item 1 2 positions Pin bar;
@@ -111,10 +114,7 @@ to a pick of 1V, proving that the circuit is working perfectly and attending the
 demand of the project. After the bench test the system was connected to the pickup
 to verify if the guitar signal would be amplified as needed to the conversion process.
 The result was satisfactory and attended well the purpose to the project, as showed on \autoref{INA_result}.
-\\
-\\
-\\
-\\
+
 \begin{figure}[!htpb]
 \centering
 \caption{Amplified pickup signal}
@@ -125,7 +125,82 @@ The result was satisfactory and attended well the purpose to the project, as sho
 
 \section{TLV 4316}
 The circuit using TLV 4316 started on the same way of the INA 326 project.
-It started verifying the \textit{component datasheet} \cite{TLV4316} and the \textit{supplier cataloge} \cite{OpAmps}.
+It started verifying the \textit{component datasheet} \cite{TLV4316} and the \textit{supplier catalogue} \cite{OpAmps}.
 On these documents it was verified some strategies, which are used on this project. For this IC it was needed use the
-concept of \textit{Virtual gounding} \cite{OpAmps}, neede to the operation of a comon Operational Amplifier on a single
-supply configuration
+concept of \textit{Virtual grounding} \cite{OpAmps} as \autoref{virtual}, needed to the operation of a common Operational Amplifier on a single
+supply configuration. For this use it was verified an Operational Amplifier which work with a supply value of 2.5V, because
+the virtual grounding technique te main supply (from the USB port) it is divided by the half.\\
+
+\begin{figure}[!htpb]
+\centering
+\caption{Virtual grounding technique}
+\label{virtual}
+\includegraphics[scale=0.3]{images/virtual}
+\legend{Source: made by authors}
+\end{figure}
+
+After verify some topologies it was chosen the \textit{inverting signal topology} \cite{OpAmps} as showed on \autoref{Inv_amp}, because it was one of the most simple topologies, the
+gain is only on the AC component, because the coupling capacitor on the input prevents the DC gain, so the signal don't presents
+DC offset.
+
+\begin{figure}[!htpb]
+\centering
+\caption{Inverting Amplifier Circuit}
+\label{Inv_amp}
+\includegraphics[scale=1]{images/TLV_Gain}
+\legend{Source: \citeonline{OpAmps}}
+\end{figure}
+
+On this circuit the gain is given by \autoref{TLV_Gain} as verified on the \textit{supplier catalogue} \cite{OpAmps}
+
+\begin{equation}
+\label{TLV_Gain}
+G=\frac{-R_2}{R_1}
+\end{equation}
+
+It is important to verify $R_3$ value, because this resistance value is responsible for bring the error caused by the
+input bias current to the minimal value. The relation to verify this value is as showed on \autoref{R3} verified at
+the \textit{supplier catalogue} \cite{OpAmps}
+
+\begin{equation}
+\label{R3}
+R3=R_1||R_2
+\end{equation}
+
+It was implemented the \textit{schematic circuit} \autoref{TLV_Sch} to perform some simulation tests and verify that the circuit attends the project
+requirements. On this circuit, as on the INA one, it was used trimmer potentiometers to be possible perform some precision adjust on the way to have
+the best relation on the gain.
+
+\begin{figure}[!htpb]
+\centering
+\caption{TLV Schematic for 1 channel}
+\label{TLC_Sch}
+\includegraphics[scale=0.4]{images/TLV_1ch}
+\legend{Source: made by authors}
+\end{figure}
+
+On this circuit is possible to verify that the gain is about 1500, calculating based on \autoref{TLV_Gain}
+
+It was decided to assembly a usable analogical output, which should sum all the signal of the channels and send to the output, the same function as the monophonic pickups which gets
+the variation of all the six strings and transform the harmonic wave into the electric signal. To mount this circuit it was verified the \textit{Inverting Summing Circuit} \cite{OpAmps},
+which sums all the input signals. It was assembled the \textit{Summer Circuit Schematic} \autoref{Sum_Sch} based on the circuit presented on \autoref{Sum}.
+
+\begin{figure}[!htpb]
+\centering
+\caption{Summer Circuit}
+\label{Sum}
+\includegraphics[scale=1]{images/sum}
+\legend{Source: \citeonline{OpAmps}}
+\end{figure}
+
+\begin{figure}[!htpb]
+\centering
+\caption{Summer Circuit Schematic}
+\label{Sum_Sch}
+\includegraphics[scale=0.3]{images/tlv_sum}
+\legend{Source: made by authors}
+\end{figure}
+
+These three parts, virtual grounding, amplifier circuits, summer circuits, compose the entire schematic for the TLV4316 project. It was used the TLV4316 instead the other IC of the family
+because it has 4 Operational Amplifiers encapsulated on the same IC, on the project it was used 8 Operational Amplifiers (One on the virtual grounding; Six on the Amplifier Circuits; One on
+the Summer circuit).\\
