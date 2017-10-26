@@ -64,12 +64,13 @@ G=2*\frac{(1M\Omega||1M\Omega)}{10k\Omega}
 =100
 \end{equation}
 
-The amplifier circuit was projected to each channel as showed on \autoref{INA_complete}.
+The amplifier circuit was projected to each channel as showed on \autoref{INA_Complete}.
 So the circuit needed 6 IC INA 326 to be complete.  After project
 the schematic circuit to each channel it was developed the PCB project, using the
-same software described on the schematic modeling. The PCI project \autoref{INA_PCB}\\
+same software described on the schematic modeling. The PCB project \autoref{INA_PCB}\\
 
-This PCB project was projected on a dual layer board scheme, using 15 mils of
+
+This PCB project \label{INA_PCB_doc} was projected on a dual layer board scheme, using 15 mils of
 minimum width for the conductive tracks. It was assembled on FR4 dual layer copper
 board, combining the through-hole and surface-mount technologies. This choice was
 made due the facility of the assembly of the through-hole components and the availability
@@ -88,7 +89,7 @@ the PCB was like showed on \autoref{PCB}.\\
 \begin{figure}[!htpb]
 \centering
 \caption{PCB Project}
-\label{INA_PCB}
+\label{PCB}
 \includegraphics[scale=0.08]{images/INA_board}
 \legend{Source: made by authors}
 \end{figure}
@@ -169,7 +170,8 @@ R3=R_1||R_2
 
 It was implemented the \textit{schematic circuit} \autoref{TLV_Sch} to perform some simulation tests and verify that the circuit attends the project
 requirements. On this circuit, as on the INA one, it was used trimmer potentiometers to be possible perform some precision adjust on the way to have
-the best relation on the gain.
+the best relation on the gain. The schematic project was done using the software CadSoft Eagle Professional 7.6.0 until the final version, as the INA
+Schematic project.
 
 \begin{figure}[!htpb]
 \centering
@@ -197,10 +199,34 @@ which sums all the input signals. It was assembled the \textit{Summer Circuit Sc
 \centering
 \caption{Summer Circuit Schematic}
 \label{Sum_Sch}
-\includegraphics[scale=0.3]{images/tlv_sum}
+\includegraphics[scale=0.4]{images/tlv_sum}
 \legend{Source: made by authors}
 \end{figure}
 
-These three parts, virtual grounding, amplifier circuits, summer circuits, compose the entire schematic for the TLV4316 project. It was used the TLV4316 instead the other IC of the family
+These three parts, virtual grounding, amplifier circuits, summer circuits, compose the \textit{entire schematic} \autoref{TLV_Complete} for the TLV4316 project. It was used the TLV4316 instead the other IC of the family
 because it has 4 Operational Amplifiers encapsulated on the same IC, on the project it was used 8 Operational Amplifiers (One on the virtual grounding; Six on the Amplifier Circuits; One on
 the Summer circuit).\\
+
+After verify the functionality of the circuit it was projected the \textit{PCB} \autoref{TLV_PCB}, using the same software as the Schematic project. The board was project on dual layer
+scheme, using 15 mils of minimum width for the conductive tracks as on the INA PCB project \autoref{INA_PCB_doc}. It was assembled on FR4 dual layer copper
+board, combining the through-hole and surface-mount technologies. This choice follows the same reasons as the INA PCB Project which is
+the facility of the assembly of the through-hole components and the availability
+of the IC only on surface (SOP-8) encapsulation. It was sent
+the files to one person who works with printing PCB boards. After the processes
+the PCB was like showed on \autoref{TLV_board}.\\
+
+\begin{figure}[!htpb]
+\centering
+\caption{Projected TLV PCB}
+\label{TLV_PCB}
+\includegraphics[scale=1.8]{images/tlv_b}
+\legend{Source: made by authors}
+\end{figure}
+
+\begin{figure}[!htpb]
+\centering
+\caption{TLV Project}
+\label{TLV_board}
+\includegraphics[scale=0.08]{images/TLV_board}
+\legend{Source: made by authors}
+\end{figure}
