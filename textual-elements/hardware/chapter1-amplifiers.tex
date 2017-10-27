@@ -14,6 +14,7 @@ Instrumental Amplifier and the second uses the Texas Instruments TLV 4316 Operat
 single supply of 5V and the reach the desirable gain value without distortion on the project frequency range of work (audible frequency range).
 
 \section{INA 326}
+\label{INA_Circuit}
 The project using the INA 326 IC, started with a research at the \textit{component datasheet} \cite{INA326}
 of this component and the \textit{supplier catalogue} \cite{OpAmps}. On theses documents it was verified
 the circuit topology \autoref{INA_topology} which provides the desired Gain to
@@ -51,7 +52,7 @@ until the final version.
 \end{figure}
 
 It was decided to use trimmer potentiometers on the amplification circuit to be possible perform small and precise adjustments to each
-channel. These adjustments was on order to waranty the best relation of the gain to the channels.
+channel. These adjustments was on order to warranty the best relation of the gain to the channels.
 
 Using the components values showed on the circuit \autoref{INA_Schematic} it is possible calculate
 the Gain of the circuit as the \autoref{Gain} shows
@@ -75,7 +76,7 @@ minimum width for the conductive tracks. It was assembled on FR4 dual layer copp
 board, combining the through-hole and surface-mount technologies. This choice was
 made due the facility of the assembly of the through-hole components and the availability
 of the IC only on surface (SOP-8) encapsulation. It was sent
-the files to one person who works with printing PCB boards. After the processes
+the files section nameto one person who works with printing PCB boards. After the processes
 the PCB was like showed on \autoref{PCB}.\\
 
 \begin{figure}[!htpb]
@@ -95,6 +96,8 @@ the PCB was like showed on \autoref{PCB}.\\
 \end{figure}
 
 On this project it was used:
+\\
+\\
 
 \begin{itemize}
 \item 6 Instrumental Amplifiers INA 326;
@@ -118,13 +121,14 @@ The result was satisfactory and attended well the purpose to the project, as sho
 
 \begin{figure}[!htpb]
 \centering
-\caption{Amplified pickup signal}
+\caption{Amplified pickup signal with INA circuit}
 \label{INA_result}
 \includegraphics[scale=1]{images/INA_result}
 \legend{Source: made by authors}
 \end{figure}
 
 \section{TLV 4316}
+\label{TLV_Circuit}
 The circuit using TLV 4316 started on the same way of the INA 326 project.
 It started verifying the \textit{component datasheet} \cite{TLV4316} and the \textit{supplier catalogue} \cite{OpAmps}.
 On these documents it was verified some strategies, which are used on this project. For this IC it was needed use the
@@ -168,7 +172,7 @@ the \textit{supplier catalogue} \cite{OpAmps}
 R3=R_1||R_2
 \end{equation}
 
-It was implemented the \textit{schematic circuit} \autoref{TLV_Sch} to perform some simulation tests and verify that the circuit attends the project
+It was projected the \textit{schematic circuit} \autoref{TLV_Sch} to perform some simulation tests and verify that the circuit attends the project
 requirements. On this circuit, as on the INA one, it was used trimmer potentiometers to be possible perform some precision adjust on the way to have
 the best relation on the gain. The schematic project was done using the software CadSoft Eagle Professional 7.6.0 until the final version, as the INA
 Schematic project.
@@ -176,12 +180,12 @@ Schematic project.
 \begin{figure}[!htpb]
 \centering
 \caption{TLV Schematic for 1 channel}
-\label{TLC_Sch}
+\label{TLV_Sch}
 \includegraphics[scale=0.4]{images/TLV_1ch}
 \legend{Source: made by authors}
 \end{figure}
 
-On this circuit is possible to verify that the gain is about 1500, calculating based on \autoref{TLV_Gain}
+On this circuit is possible to adjust the gain to near of 100, calculating based on \autoref{TLV_Gain}, adjusting the trimmer potentiometer to the desirable value.\\
 
 It was decided to assembly a usable analogical output, which should sum all the signal of the channels and send to the output, the same function as the monophonic pickups which gets
 the variation of all the six strings and transform the harmonic wave into the electric signal. To mount this circuit it was verified the \textit{Inverting Summing Circuit} \cite{OpAmps},
@@ -230,3 +234,41 @@ the PCB was like showed on \autoref{TLV_board}.\\
 \includegraphics[scale=0.08]{images/TLV_board}
 \legend{Source: made by authors}
 \end{figure}
+
+To this project it was used the following component list:
+
+\begin{itemize}
+\item 2 Operational Amplifiers TLV 4316;
+\item 6 1M$\Omega$ Trimmer Potentiometer;
+\item 6 4.7$\mu$F Ceramic Capacitor;
+\item 3 10k$\Omega$ $\frac{1}{4}W$ 5 Percent Tolerance Resistor;
+\item 18 1k$\Omega$ $\frac{1}{4}W$ 5 Percent Tolerance Resistor;
+\item 6 500k$\Omega$ $\frac{1}{4}W$ 5 Percent Tolerance Resistor;
+\item 1 6 positions Pin bar;
+\item 1 12 positions dual track Pin bar;
+\item 1 2 positions Pin bar;
+\item 1 1 positions Pin bar;
+\end{itemize}
+
+After soldering the components it was performed some bench tests to
+verify the functionality of the amplifier circuit. The result showed that the
+circuit attends the required function, amplifying the signal from a pick of 10mV
+to a pick of 1V, proving that the circuit is working perfectly and attending the
+demand of the project. After the bench test the system was connected to the pickup
+to verify if the guitar signal would be amplified as needed to the conversion process.
+The result was satisfactory and attended well the purpose to the project, as showed on \autoref{TLV_result}.
+
+\begin{figure}[!htpb]
+\centering
+\caption{Amplified pickup signal with TLV circuit}
+\label{TLV_result}
+\includegraphics[scale=1]{images/TLV_result}
+\legend{Source: made by authors}
+\end{figure}
+
+\section{Results}
+After assembly both circuits, the \textit{INA Circuit} \autoref{INA_Circuit} and the \textit{TLV Circuit} \autoref{TLV_Circuit},
+and perform some analysis on the scope results it was decided to continue the project using the \textit{INA Circuit} \autoref{INA_Circuit}
+because it showed a better and consistent response on the amplify process. Comparing \autoref{INA_result} and \autoref{TLV_result}
+it is clear that to the same sound frequency the TLV amplifier circuit presents much more noise than the INA circuit, which the signal is really
+clear of interferences.
