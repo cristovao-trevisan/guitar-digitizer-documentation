@@ -54,16 +54,9 @@ until the final version.
 It was decided to use trimmer potentiometers on the amplification circuit to be possible perform small and precise adjustments to each
 channel. These adjustments was on order to warranty the best relation of the gain to the channels.
 
-Using the components values showed on the circuit \autoref{INA_Schematic} it is possible calculate
-the Gain of the circuit as the \autoref{Gain} shows
-
-\begin{equation}
-  \label{Gain}
-G=2*\frac{(1M\Omega||1M\Omega)}{10k\Omega}
-=2*\frac{500k\Omega}{10k\Omega}
-=2*50
-=100
-\end{equation}
+Using the components values showed on the circuit \autoref{INA_Schematic} it was calculated
+the Gain of the circuit. Using the trimmer potentiometer it was adjusted the gain value to the desirable value
+of 1800.
 
 The amplifier circuit was projected to each channel as showed on \autoref{INA_Complete}.
 So the circuit needed 6 IC INA 326 to be complete.  After project
@@ -79,25 +72,7 @@ of the IC only on surface (SOP-8) encapsulation. It was sent
 the files section nameto one person who works with printing PCB boards. After the processes
 the PCB was like showed on \autoref{PCB}.\\
 
-\begin{figure}[!htpb]
-\centering
-\caption{Projected INA PCB}
-\label{INA_PCB}
-\includegraphics[scale=1.8]{images/TCC_INA}
-\legend{Source: made by authors}
-\end{figure}
-
-\begin{figure}[!htpb]
-\centering
-\caption{PCB Project}
-\label{PCB}
-\includegraphics[scale=0.08]{images/INA_board}
-\legend{Source: made by authors}
-\end{figure}
-
 On this project it was used:
-\\
-\\
 
 \begin{itemize}
 \item 6 Instrumental Amplifiers INA 326;
@@ -110,6 +85,22 @@ On this project it was used:
 \item 1 12 positions dual track Pin bar;
 \item 1 2 positions Pin bar;
 \end{itemize}
+
+\begin{figure}[!htpb]
+\centering
+\caption{Projected INA PCB}
+\label{INA_PCB}
+\includegraphics[scale=1.5]{images/TCC_INA}
+\legend{Source: made by authors}
+\end{figure}
+
+\begin{figure}[!htpb]
+\centering
+\caption{PCB Project}
+\label{PCB}
+\includegraphics[scale=0.08]{images/INA_board}
+\legend{Source: made by authors}
+\end{figure}
 
 After soldering all the components it was performed some bench tests to
 verify the functionality of the amplifier circuit. The result showed that the
@@ -195,7 +186,7 @@ which sums all the input signals. It was assembled the \textit{Summer Circuit Sc
 \centering
 \caption{Summer Circuit}
 \label{Sum}
-\includegraphics[scale=1]{images/sum}
+\includegraphics[scale=0.9]{images/sum}
 \legend{Source: \citeonline{OpAmps}}
 \end{figure}
 
@@ -219,22 +210,6 @@ of the IC only on surface (SOP-8) encapsulation. It was sent
 the files to one person who works with printing PCB boards. After the processes
 the PCB was like showed on \autoref{TLV_board}.\\
 
-\begin{figure}[!htpb]
-\centering
-\caption{Projected TLV PCB}
-\label{TLV_PCB}
-\includegraphics[scale=1.8]{images/tlv_b}
-\legend{Source: made by authors}
-\end{figure}
-
-\begin{figure}[!htpb]
-\centering
-\caption{TLV Project}
-\label{TLV_board}
-\includegraphics[scale=0.08]{images/TLV_board}
-\legend{Source: made by authors}
-\end{figure}
-
 To this project it was used the following component list:
 
 \begin{itemize}
@@ -249,6 +224,22 @@ To this project it was used the following component list:
 \item 1 2 positions Pin bar;
 \item 1 1 positions Pin bar;
 \end{itemize}
+
+\begin{figure}[!htpb]
+\centering
+\caption{Projected TLV PCB}
+\label{TLV_PCB}
+\includegraphics[scale=1.5]{images/tlv_b}
+\legend{Source: made by authors}
+\end{figure}
+
+\begin{figure}[!htpb]
+\centering
+\caption{TLV Project}
+\label{TLV_board}
+\includegraphics[scale=0.08]{images/TLV_board}
+\legend{Source: made by authors}
+\end{figure}
 
 After soldering the components it was performed some bench tests to
 verify the functionality of the amplifier circuit. The result showed that the
