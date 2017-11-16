@@ -1,58 +1,45 @@
-\chapter{Pickup Project}
+\section{Pickup}
 \label{pickup-project}
 
-Some electric guitars uses pickups consisted by magnets wrapped on copper thin wire, they
-\textit{work} \cite{pickup-work} using the variation of magnetic field, as the \textit{Faraday Law}
-\cite{faraday-law}, created by the string vibration to generate the electrical signal correspondent
-to each tone frequency.
+Electric guitars uses pickups consisted by magnets wrapped in thin  copper wire. The
+working principle is based on the variation of magnetic field, created by the string
+vibration. The vibration frequency of the string induces an electric signal on the output of the pickup \cite{pickup-work}
+\cite{faraday-law}.
 
-\section{Requirements}
-For assembly the pickup it was verified the requirements:
+The designed pickup used the following main components:
 
 {\begin{itemize}
-  \item pickup base to assembly the set up magnet+coil
+  \item Base to assembly the set up magnet+coil
   \item 6 magnets
-  \item copper wire to wrap the magnets
-  \item cover to attach the set up on the guitar
+  \item Copper wire to wrap the magnets
+  \item Cover to attach the set up on the guitar
 \end{itemize}}
 
-\section{Pickup Base}
-After some studies it was decided to print the pickup base using 3D printer, this
-decision was due the reduction of the cost of the project. Than it was projected a 3D
-model using the software AutoCAD and printed this on 3D printer as the project showed
-on \autoref{3D-project}.
+After some studies it was decided to build the pickup base using a 3D printer, due the
+availability and reduced cost of this project. The model is showed on \autoref{3D-project}
+and was projected using the AutoCAD software.
 
 \begin{figure}[!htpb]
 \centering
 \caption{3D pickup base project}
 \label{3D-project}
 \includegraphics[scale=0.5]{images/pickup}
-\legend{Source: made by authors}
+\legend{Source: Authors}
 \end{figure}
 
 There was two materials to print the model, \textit{PLA} (Polylatic Acid) \cite{3d-materials}
 and \textit{ABS} (Acrylonitrile Butadiene Styrene) \cite{3d-materials}. It was decided to print
-the model on PLA because it attends the requisites of robustness of the project and it is
+the model on PLA because it attends the requisites of robustness of the project, is
 faster to print and have a lower cost when compared to the other material.
 
-\section{Set up Magnets+Coils}
-
-After print the pickup base it was assembled the coils around the guitar \autoref{magnets}
-using thin copper wire. There was two dimensions of wire, 0.25mm and 0.5mm of diameter. It was
-tested the set up with both wires and it was chosen to use on the project the 0.5mm
-diameter wire because this dimension attended the pickup dimension restriction because it was
-decided to give 500 turns on each magnet to reach a minimal desired voltage value of 1 V.
+With pickup base ready it was assembled the coils around the guitar \autoref{magnets}.
+It was performed some tests and it was chosen to use the 0.5mm diameter wire on the project,
+giving 500 turns on each magnet to reach a minimal workable voltage value.
 
 \begin{figure}[!htpb]
 \centering
 \caption{Magnets used on the project}
 \label{magnets}
-\includegraphics[scale=0.3]{images/magnets}
+\includegraphics[scale=0.2]{images/magnets}
 \legend{Source: \citeonline{pickup-magnets}}
 \end{figure}
-
-With the pickup already assembled it was verified the output signal. This signal
-pick was less then 1 mV and this value was so weak to send to the Analog-digital
-converter present on the microprocessor. With this dungeon it was verified that
-it is requested a circuit responsible for the signal amplification to be possible to
-read the signal with quality on the microprocessor.
