@@ -1,3 +1,38 @@
 \chapter[Introduction]{Introduction}
 
-\lipsum[31-33]
+With the advance of technology, music - and musical instruments - have also evolved to
+use it's advantages. They are a lot of use cases, the most noticeable ones being music
+annotation and creation (through electronic instruments, also known as synthesizers).
+All of the modern musical software and hardware use the same format to communicate,
+called MIDI. \\
+To translate music playing it is needed to know which note is being played at a
+given time. This make it very easy to translate instruments that have separated
+keys for each note (the most noticeable one being piano) to MIDI, but very hard
+do the same for instruments like the guitar, that have a single output for multiple
+notes (each string has about 15 notes). The guitar is also a harmonic instrument,
+as it can play multiple notes simultaneously, which makes it's digitization even harder.\\
+There are already a few commercial solutions for this, but not a very performant
+and cheap one. Recently a new pure software solution was released at a reasonable
+price which works very well for live MIDI playing, but not enough for music annotation.
+There are also a few hardware solutions available at the market, which perform well,
+but are very expensive. \autoref{market-solutions} shows the most relevant solutions
+in the current market.
+
+\begin{table}[htb]
+  \begin{center}
+    \ABNTEXreducedfont
+    \caption[Market Solutions]{Market Solutions}
+    \label{market-solutions}
+    \begin{tabular}{m{4cm} | m{1cm} | m{2cm} | m{2cm} | m{2cm} }
+      \hline
+      Name & Price (U\$D) & \pbox{2cm}{Usage\\Complexity} & \pbox{2cm}{Live\\Performance} & \pbox{2cm}{Annotation\\Performance}\\
+      \hline \hline
+      Roland GK3 + GhostHexpander + GI20 & 700 & Hard & High & High \\
+      Godin Freeway + GhostHexpander + GI20 & 800 & Hard & High & High \\
+      Jam Origin - Audio to MIDI & 100 & Easy & High & Low/Medium \\
+      Migic & 40 & Easy & Medium & Low \\
+      \hline
+    \end{tabular}
+    \legend{Source: authors}
+  \end{center}
+\end{table}
