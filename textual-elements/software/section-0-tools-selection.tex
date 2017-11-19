@@ -1,7 +1,7 @@
-\chapter{Tools Selection}
+\section{Tools Selection}
 \label{tools-selection}
 
-\section{Top Level Requirements}
+\subsection{Top Level Requirements}
 The exact implementation of each of the items will be discussed later, but to
 simply set our requirements a general list of them is:
 
@@ -13,9 +13,9 @@ simply set our requirements a general list of them is:
   \item Access to MIDI API
 \end{itemlist}
 
-\section{Language Choice}
+\subsection{Language Choice}
 
-\subsection{Java}
+\subsubsection{Java}
 The first choice was Java, as it meets all requirements. Desktop GUI can be done
 using Swing, a good library for pitch detection is also available (called TasosDSP \cite{TarsosDSP}).
 There is also a binding to libusb called usb4java and native MIDI support. \\
@@ -28,7 +28,7 @@ real time visualization either, which made really hard to both debug and tune th
 frequency detection algorithm. On top of that Swing is at least non-pleasant
 compared to more modern UI programming, so a second approach came to be.
 
-\subsection{JavaScript}
+\subsubsection{JavaScript}
 In alignment with both current work experience and world programming tendencies
 JavaScript was taken as a choice. We will see that requirements fit much better now,
 for the following reasons. \\
@@ -45,7 +45,7 @@ The most problematic requirement in Java was \textit{libusb} support. It is avai
 in JavaScript using \textit{node-usb} \cite{node-usb}, and a few simple tests
 returned good results with a much simpler API. MIDI was also tested and worked just fine.
 
-\section{Desktop Framework}
+\subsection{Desktop Framework}
 Now that JavaScript is set as our final selection we need an environment to run
 it. There are two already listed really mature and popular choices: Electron and NW.js. \\
 At first Electron was used to build a test application, because it is the most popular
@@ -55,7 +55,7 @@ much faster using pure JS code rather than the C++ library. A deeper research
 was needed, and the way Electron worked was getting in our way, but first it's
 necessary to know what Node.js is.
 
-\subsection{Interpreter}
+\subsubsection{Interpreter}
 JavaScript is a interpreted language and thus needs an interpreter. The most
 common one is Google V8, which happens to be the same one used in most web
 browsers as well as in Node. The difference between browsers and Node is simply
@@ -70,7 +70,7 @@ file system and full communication access), but it does \textbf{not} provide
 any kind of GUI. Knowing that it is possible to have a better understanding on
 how the two desktop environments work.
 
-\subsection{Electron}
+\subsubsection{Electron}
 Electron by design has at least two processes running \cite{ElectronVsNW},
 one for the "web" and other
 for Node access. The answer for how the web process access native resources is
@@ -78,13 +78,13 @@ also to why the execution of the C++ processing library was slow: it uses
 inter-process communication (IPC). IPC makes things a lot slower, which ultimately
 makes impossible to use Electron in this project.
 
-\subsection{Node Webkit}
+\subsubsection{Node Webkit}
 Differently from Electron, NW.js \cite{NWjs, ElectronVsNW} takes the Node environment
 and combines it with Chromium into a single process, removing the use of IPC.
 Initial tests reported that the pitch detection library has fast
 execution as expected.
 
-\section{Architectural Tools}
+\subsection{Architectural Tools}
 NW.js will go only as far as to give access to both Node and DOM API's. But that
 is too crude, and not what we wanted by given up on Java Swing. Again based on
 current work experience and world tendencies the setup chosen is React + Redux. \\
@@ -113,7 +113,7 @@ to build a well designed application.
   \legend{Source: \citeonline{react-redux-diagram-source}}
 \end{figure}
 
-\section{Fast Signal Processing}
+\subsection{Fast Signal Processing}
 Pitch detection is a heavy problem to solve, and good implementations are time
 consuming, so we need efficiency to run it real-time. The library already said
 to be used didn't actually existed, the only one available was a pure JavaScript
@@ -121,7 +121,7 @@ library \cite{pitchfinder} which is not suitable for this project. The solution
 was to build our own library based on both the pure JavaScript one and TarsosDSP
 \cite{TarsosDSP}. Implementation details discussed further on \autoref{pitch-detection}.
 
-\section{Real Time Visualization}
+\subsection{Real Time Visualization}
 There are lots of charting libraries available for use with web interfaces (and
 by extension NW.js), unfortunately none was good fit for real time high density
 signals such as audio. The solution was again to build one, since all other things

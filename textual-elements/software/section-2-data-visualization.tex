@@ -1,4 +1,4 @@
-\chapter{Data Visualization}
+\section{Data Visualization}
 \label{data-visualization}
 
 The objective of data visualization is to live debug and tune both hardware gain
@@ -10,7 +10,7 @@ them are too automatic or have too much details, making them too slow for our ne
 The solution was to build our own library for that, again available as an open source
 project at both GitHub and npm \cite{react-plotter}.
 
-\section{Requirements}
+\subsection{Requirements}
 \label{data-visualization-requirements}
 \begin{itemlist}
   \item Be a React Component
@@ -21,7 +21,7 @@ project at both GitHub and npm \cite{react-plotter}.
   \item Fixed Height/Width
 \end{itemlist}
 
-\section{Algorithm}
+\subsection{Algorithm}
 Triggering and buffering are achieved by using a filter that only calls the plotting
 function when the options are met. This filter is simply the function called to
 add data, and it is represented by \autoref{react-plotter-add-diagram}. \\
@@ -48,7 +48,7 @@ of the algorithm are as follow:
   \item Draw arrows on canvas
 \end{enumerate}
 
-\section{Implementation}
+\subsection{Implementation}
 Using the listed requirements (\autoref{data-visualization-requirements}) a minimum
 API is built as a React component. Being such all it gives is a set of properties,
 for which the chart is drawn (when needed), they are listed in \autoref{react-plotter-props}.
@@ -91,7 +91,7 @@ The style property is a function that is called to render each point. Two styles
 were built, a line plot (points are connected by a straight line) and a digital
 plot (digital signal standard chart, not used in the final version of this project).
 
-\section{Results}
+\subsection{Results}
 The results are more than satisfactory, tested to be able to run multiple plots
 of audio speed signals at the same time without much effort. \autoref{plot-real-time}
 and \autoref{plot-triggered} show how the visualization looks on the

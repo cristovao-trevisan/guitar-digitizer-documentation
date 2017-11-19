@@ -1,10 +1,10 @@
-\chapter{Software Results and Discussions}
+\section{Software Results and Discussions}
 
-\section{Results}
+\subsection{Results}
 TODO: measurements and analysis
 
-\section{Future Improvements}
-\subsection{Note Detection}
+\subsection{Future Improvements}
+\subsubsection{Note Detection}
 Real time note detection proved not to be so accurate. Legato (connected) notes
 may cause a middle note detection and there are misdetections (mostly at frequency
 transitions). It works well enough for live play of MIDI instruments, but not
@@ -14,7 +14,7 @@ and post-process them. This way it is possible to use a more detailed analysis
 of each signal and thus get very good results, as there is much more computing
 power available when not being limited by real-time processing.
 
-\subsection{Performance}
+\subsubsection{Performance}
 Though real time analysis work, a few limitations were detected. Buffering can only
 process each data point one time (can't use a sliding buffer that recycles data).
 This means that we are close to the processing limits, due to two causes: single

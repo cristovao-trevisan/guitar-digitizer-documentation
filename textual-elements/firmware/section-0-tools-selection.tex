@@ -1,11 +1,11 @@
-\chapter{Specifications}
+\section{Specifications}
 \label{firmware-specifications}
 
 The firmware is basically an analog sampler, all it has to do is sample six analog
 channels, add a header (to identify the beginning and check continuity) and send it
 through USB. Lets start by listing the requirements for the hardware.
 
-\section{Requirements}
+\subsection{Requirements}
 \begin{itemlist}
   \item Super cheap
   \item 6 analog channels (more precision is better)
@@ -38,7 +38,7 @@ transfer that can a have transfer rate up to 12Mbps (USB full-speed standard).\\
 We still need to choose or exact sample rate ($f_{s}$), but first let's select which
 hardware will be used.
 
-\section{Microcontroller Selection}
+\subsection{Microcontroller Selection}
 There are too many microcontrollers that fit our requirements, but the most popular
 and cheap one is clearly the ARM from ST called STM32F103C8T6 \cite{STM32F103},
 and that is why it was selected. \\
@@ -55,7 +55,7 @@ The board an it's pinout can be seen in \autoref{STM32F103-board}.
   \legend{Source: \citeonline{STM32F103-board-image}}
 \end{figure}
 
-\section{Sample Frequency}
+\subsection{Sample Frequency}
 \label{firmware-sample-frequency}
 Usage of the ADCs for the selected $\mu$C can be optimized by using continuous sampling
 mode in conjunction with DMA \cite[ch. 11]{STM32F103}. In this mode the sample frequency is controlled by a register
