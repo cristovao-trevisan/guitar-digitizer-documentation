@@ -1,5 +1,5 @@
 \section{Pickup}
-\label{pickup-project}
+\label{pickup}
 
 Electric guitars pickups are usually built by wrapping copper wire around magnets.
 The working principle is based on the variation of magnetic field, created by the string
@@ -30,18 +30,61 @@ and was projected using the AutoCAD software.
 There were two materials available to print the model, \textit{PLA} (Polylatic Acid) \cite{3d-materials}
 and \textit{ABS} (Acrylonitrile Butadiene Styrene) \cite{3d-materials}. It was decided to print
 the model on PLA because it attends the requisites of robustness of the project, is
-faster to print and have a lower cost when compared to the other materials. \\
-With the pickup base ready, coils were built by manually wrapping copper wire around
+faster to print and have a lower cost when compared to the other materials. The built part is showed on
+\autoref{3D-base} \\
+
+\begin{figure}[!htpb]
+\centering
+\caption{3D pickup base}
+\label{3D-base}
+\includegraphics[scale=0.08]{images/base}
+\legend{Source: Authors}
+\end{figure}
+
+With the pickup base ready, coils (\autoref{coils}) were built by manually wrapping copper wire around
 each magnet (\autoref{magnets}). Similar hexaphonic pickups can be found at the
 market and researching about them gave the number of 500 turns as a reasonable amount
 of wiring. \\
-TODO -> EXPLAIN HOW TO TEST\\
+
+After mount the coils, as showed on \autoref{coils} it was performed a test to verify the real voltage value induced by
+the variation of the magnetic field. It was used the LM 741 \cite{LM741} with a gain of 10,
+because it wasn't possible to verify the value on the coil output, with this simple test circuit
+it was possible to verify that the output value on the IC was 1mV, this value indicate that the
+output value on the coil is around 0.1mV. \\
+
 TODO -> CALCULATE THE APROX. WIRE WIDTH BASED ON 500 turns\\
 
 \begin{figure}[!htpb]
   \centering
   \caption{Magnets used on the project}
   \label{magnets}
-  \includegraphics[scale=0.2]{images/magnets}
+  \includegraphics[scale=0.3]{images/magnets}
+  \legend{Source: \citeonline{pickup-magnets}}
+\end{figure}
+
+\begin{figure}[!htpb]
+  \centering
+  \caption{Coils assembled}
+  \label{coils}
+  \includegraphics[scale=0.08]{images/coils}
+  \legend{Source: \citeonline{pickup-magnets}}
+\end{figure}
+
+After test one coil it was assemble the other five coils and assembled the pickup, as
+showed on \autoref{6coils} and \autoref{assembled-pickup}
+
+\begin{figure}[!htpb]
+  \centering
+  \caption{Coils assembled}
+  \label{6coils}
+  \includegraphics[scale=0.08]{images/6coils}
+  \legend{Source: \citeonline{pickup-magnets}}
+\end{figure}
+
+\begin{figure}[!htpb]
+  \centering
+  \caption{Coils assembled}
+  \label{assembled-pickup}
+  \includegraphics[scale=0.08]{images/assembled-pickup}
   \legend{Source: \citeonline{pickup-magnets}}
 \end{figure}

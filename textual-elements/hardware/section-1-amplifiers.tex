@@ -4,16 +4,17 @@ an electrical input signal according to a specific transformation function (gain
 for each different topology. The circuit for small input signals is normally
 composed by an operational amplifier, resistors, trimmer potentiometers to adjust
 the gain and capacitors for frequency filtering.\\
-It was required by the project an amplifier with a gain of at least 1000 (TODO -> EXPLAIN WHY,
-RELATED TO THE PICKUP TEST WHICH GIVES THE SIGNAL STRENGTH)
-that can be powered by a sigle 5V supply, provided by the USB port. The circuit
+It was required by the project an amplifier with a gain of at least 1000, beacuse, as it was
+mentioned on \autoref{pickup} the tested output coil presented the value around 0.1 mV and the
+circuit needs a signal of around 1V to work as expected on the AD converter, that can be powered by a sigle 5V supply, provided by the USB port. The circuit
 should be cheap (and thus compact) when compared to the existent systems which usually need
 multiple complex modules to perform the same action as the proposed in this project. \\
 It was researched some types of amplifiers circuits in \citeonline{Milmann}
 and in \citeonline{OpAmps}. After verifying some amplifier topologies it was
 selected two different circuits which attend to this project's requirements.
-The first circuit uses the Texas Instruments INA 326 Instrumental Amplifier and the
-second uses the Texas Instruments TLV 4316 Operational Amplifier. Both topologies
+The first circuit uses the Texas Instruments INA 326 Instrumental Amplifier.% and the
+%second uses the Texas Instruments TLV 4316 Operational Amplifier.
+This topology
 can be supplied with a single 5V source and can reach the desirable gain without
 distortion on the desired frequency range (human audible frequencies) with a single
 amplifier per channel.\\
@@ -34,8 +35,9 @@ provided by the \textit{component datasheet} \cite{INA326}:
 Both the $R_0$ resistor and the $C_0$ capacitor were excluded because they were not
 relevant for our requirements. The values for the remaining components were calculated
 and the circuit was build to test it's results for the desired application.
-After verifying the circuit does work properly (TODO: EXPLAIN HOW), the schematic \autoref{INA-single-channel-schematic} was
-developed using the software CadSoft Eagle Professional 7.6.0 \textbf{until the final version (TODO: WTF THIS MEANS)}.
+After verifying the circuit does work properly, giving the desirable value on the output and without
+distortions on single supply method, the schematic \autoref{INA-single-channel-schematic} was
+developed using the software CadSoft Eagle Professional 7.6.0.
 \begin{figure}[!htpb]
   \centering
   \caption{INA 326 topology}
