@@ -51,8 +51,19 @@ the variation of the magnetic field. It was used the LM 741 \cite{LM741} with a 
 because it wasn't possible to verify the value on the coil output, with this simple test circuit
 it was possible to verify that the output value on the IC was 1mV, this value indicate that the
 output value on the coil is around 0.1mV. \\
+Considering that the area of a turn is approximately an square with sides dimensions
+equal to the wire diameter it was estimated the wire diameter as in \autoref{wire-diameter-equation}.
 
-TODO -> CALCULATE THE APROX. WIRE WIDTH BASED ON 500 turns\\
+\begin{equation}
+  \label{turns-equation}
+  Turns = \frac{Area\ between\ magnets}{Area\ of\ each\ turn} = \frac{ w * l / 2 }{ d^{2} } = \frac{5mm * 12mm / 2}{d^2} = 1000
+\end{equation}
+\begin{equation}
+  \label{wire-diameter-equation}
+  d = \sqrt{\frac{w\ *\ l}{2\ *\ Turns}} = \sqrt{\frac{5mm * 12mm}{2*1000}} \cong 0.17mm \cong 34AWG
+\end{equation}
+
+TODO -> BETTER USAGE OF INFO ABOVE\\
 
 \begin{figure}[!htpb]
   \centering
