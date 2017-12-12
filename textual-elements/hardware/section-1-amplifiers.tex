@@ -53,7 +53,7 @@ developed using the software CadSoft Eagle Professional 7.6.0.
   \includegraphics[scale=0.65]{images/INA/single-channel-schematic}
   \legend{Source: Authors}
 \end{figure}
-TODO -> INCREASE RESOLUTION OF \autoref{INA-single-channel-schematic}\\
+
 
 It was decided to use trimmer potentiometers on the amplification circuit to
 regulate the gain for each channel. The desired gain range was achieved by selecting
@@ -104,22 +104,45 @@ The component list for this board is as in \autoref{INA-BOM}.
   \centering
   \caption{PCB Project}
   \label{INA-printed}
-  \includegraphics[scale=0.08]{images/INA/printed.jpeg}
+  \includegraphics[scale=0.07]{images/INA/printed.jpeg}
   \legend{Source: Authors}
 \end{figure}
-After soldering all the components it was performed some bench tests to verify the
+
+
+After soldering all the components the assembled PCB was as showed on \autoref{assembled-pcb},
+then it was performed some bench tests to verify the
 functionality of the amplifier circuit. The result showed that the circuit attends
 the required functionality, amplifying the signal from a peak-to-peak of about 1mV
 to 1.5V for the entire range of audible frequencies, proving that the circuit is
 working perfectly and attending the demands of the project. After the bench test
 the system was connected to the pickup to verify if the guitar signal would be
 amplified as needed for the conversion process. The result was satisfactory and
-attended well the purpose of the project, as showed on \autoref{INA-result}.
+attended well the purpose of the project, as showed on \autoref{INA-result} which shows
+the resultant electric wave when one string is played.
+
+\begin{figure}[!htpb]
+  \centering
+  \caption{PCB Board}
+  \label{assembled-pcb}
+  \includegraphics[scale=0.5]{images/INA/assembled-pcb.jpeg}
+  \legend{Source: Authors}
+\end{figure}
 
 \begin{figure}[!htpb]
 \centering
 \caption{Amplified pickup signal with INA circuit}
 \label{INA-result}
 \includegraphics[scale=1]{images/INA/result}
+\legend{Source: Authors}
+\end{figure}
+
+After perform all the functionality tests it was attached the amplifier circuit to the microprocessor
+circuit, as showed on\autoref{HW-pcb}.
+
+\begin{figure}[!htpb]
+\centering
+\caption{Captation system}
+\label{HW-pcb}
+\includegraphics[scale=0.5]{images/INA/Hw-pcb}
 \legend{Source: Authors}
 \end{figure}

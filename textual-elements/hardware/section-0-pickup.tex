@@ -41,17 +41,8 @@ faster to print and have a lower cost when compared to the other materials. The 
 \legend{Source: Authors}
 \end{figure}
 
-With the pickup base ready, coils (\autoref{coils}) were built by manually wrapping copper wire around
-each magnet (\autoref{magnets}). Similar hexaphonic pickups can be found at the
-market and researching about them gave the number of 500 turns as a reasonable amount
-of wiring. \\
-
-After mount the coils, as showed on \autoref{coils} it was performed a test to verify the real voltage value induced by
-the variation of the magnetic field. It was used the LM 741 \cite{LM741} with a gain of 10,
-because it wasn't possible to verify the value on the coil output, with this simple test circuit
-it was possible to verify that the output value on the IC was 1mV, this value indicate that the
-output value on the coil is around 0.1mV. \\
-Considering that the area of a turn is approximately an square with sides dimensions
+With the pickup base ready, coils (\autoref{coils}) were project. To start the project it was
+Considered that the area of a turn is approximately an square with sides dimensions
 equal to the wire diameter it was estimated the wire diameter as in \autoref{wire-diameter-equation}.
 
 \begin{equation}
@@ -63,7 +54,26 @@ equal to the wire diameter it was estimated the wire diameter as in \autoref{wir
   d = \sqrt{\frac{w\ *\ l}{2\ *\ Turns}} = \sqrt{\frac{5mm * 12mm}{2*1000}} \cong 0.17mm \cong 34AWG
 \end{equation}
 
-TODO -> BETTER USAGE OF INFO ABOVE\\
+Starting on the equation showed on \autoref{turns-equation} and based on the similar model of assemble one
+passive pickup \cite{hexaphonic-pickup} which describes that it was assembled the coil using 1000 turns on each magnet,
+on this way it was defined as the initial condition to calculate the wire diameter to the project. It was calculated the
+area between 2 magnets, with 5mm wide and 12mm length. With this values, area between magnets and number of turns, and
+considering the area of the turns as a square, as mentioned above, it is possible to calculate the wire diameter doing the
+square root of the equation as showed on \autoref{wire-diameter-equation}. To the project initial values it was verified
+that the diameter to the copper wire is of 0.17mm. Transforming the value of millimeters to American Wire Gauge it has a
+value of 37AWG approximately.
+
+This diameter is only feasible with a automatized process. The present project was built by manually
+wrapping copper wire around
+each magnet (\autoref{magnets}). Similar hexaphonic pickups can be found at the
+market and researching about them gave the number of 500 turns as a reasonable amount
+of wiring. \\
+
+After mount the coils, as showed on \autoref{coils} it was performed a test to verify the real voltage value induced by
+the variation of the magnetic field. It was used the LM 741 \cite{LM741} with a gain of 10,
+because it wasn't possible to verify the value on the coil output, with this simple test circuit
+it was possible to verify that the output value on the IC was 1mV, this value indicate that the
+output value on the coil is around 0.1mV. \\
 
 \begin{figure}[!htpb]
   \centering
