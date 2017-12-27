@@ -27,11 +27,11 @@ and was projected using the AutoCAD software.
 \legend{Source: Authors}
 \end{figure}
 
-There were two materials available to print the model, \textit{PLA} (Polylatic Acid) \cite{3d-materials}
+There were two materials available to print the model, \textit{PLA} (Polylactic Acid) \cite{3d-materials}
 and \textit{ABS} (Acrylonitrile Butadiene Styrene) \cite{3d-materials}. It was decided to print
 the model on PLA because it attends the requisites of robustness of the project, is
 faster to print and have a lower cost when compared to the other materials. The built part is showed on
-\autoref{3D-base} \\
+\autoref{3D-base}
 
 \begin{figure}[!htpb]
 \centering
@@ -41,9 +41,9 @@ faster to print and have a lower cost when compared to the other materials. The 
 \legend{Source: Authors}
 \end{figure}
 
-With the pickup base ready, coils (\autoref{coils}) were project. To start the project it was
-Considered that the area of a turn is approximately an square with sides dimensions
-equal to the wire diameter it was estimated the wire diameter as in \autoref{wire-diameter-equation}.
+With the pickup base ready, the coils (\autoref{coils}) were dimensioned. The area of a turn
+was considered as a square with side dimensions equal to the wire diameter, and using that
+it was estimated the wire diameter as in \autoref{wire-diameter-equation}.
 
 \begin{equation}
   \label{turns-equation}
@@ -54,26 +54,18 @@ equal to the wire diameter it was estimated the wire diameter as in \autoref{wir
   d = \sqrt{\frac{w\ *\ l}{2\ *\ Turns}} = \sqrt{\frac{5mm * 12mm}{2*1000}} \cong 0.17mm \cong 34AWG
 \end{equation}
 
-Starting on the equation showed on \autoref{turns-equation} and based on the similar model of assemble one
-passive pickup \cite{hexaphonic-pickup} which describes that it was assembled the coil using 1000 turns on each magnet,
-on this way it was defined as the initial condition to calculate the wire diameter to the project. It was calculated the
-area between 2 magnets, with 5mm wide and 12mm length. With this values, area between magnets and number of turns, and
-considering the area of the turns as a square, as mentioned above, it is possible to calculate the wire diameter doing the
-square root of the equation as showed on \autoref{wire-diameter-equation}. To the project initial values it was verified
-that the diameter to the copper wire is of 0.17mm. Transforming the value of millimeters to American Wire Gauge it has a
-value of 37AWG approximately.
-
-This diameter is only feasible with a automatized process. The present project was built by manually
-wrapping copper wire around
-each magnet (\autoref{magnets}). Similar hexaphonic pickups can be found at the
-market and researching about them gave the number of 500 turns as a reasonable amount
-of wiring. \\
-
-After mount the coils, as showed on \autoref{coils} it was performed a test to verify the real voltage value induced by
+\autoref{turns-equation} was used with 1000 turns as a reference, based on a similar project found
+at research which uses that number \cite{hexaphonic-pickup}. Using the area between 2 magnets (5mm wide
+and 12mm length) and the estimated area of a wire turn it is possible to calculate the wire diameter,
+as in \autoref{wire-diameter-equation} - resulting in a diameter of 0.17mm, that can be
+converted to 37AWG, approximately. \\
+This diameter is only feasible with an automatized process. The present project was built by manually
+wrapping copper wire around each magnet (\autoref{magnets}), so only 500 turns were feasible. \\
+After mounting the coils, as showed on \autoref{coils} it was performed a test to verify the real voltage value induced by
 the variation of the magnetic field. It was used the LM 741 \cite{LM741} with a gain of 10,
-because it wasn't possible to verify the value on the coil output, with this simple test circuit
-it was possible to verify that the output value on the IC was 1mV, this value indicate that the
-output value on the coil is around 0.1mV. \\
+because it wasn't possible to verify the value on the coil output. With this simple test circuit
+it was possible to verify that the output value on the IC was 8mV, this value indicate that the
+output value on the coil is around 1mV.
 
 \begin{figure}[!htpb]
   \centering
@@ -88,18 +80,18 @@ output value on the coil is around 0.1mV. \\
   \caption{Coils assembled}
   \label{coils}
   \includegraphics[scale=0.08]{images/coils}
-  \legend{Source: \citeonline{pickup-magnets}}
+  \legend{Source: Authors}
 \end{figure}
 
-After test one coil it was assemble the other five coils and assembled the pickup, as
-showed on \autoref{6coils} and \autoref{assembled-pickup}
+After testing with one coil, the complete assemble was made, as showed on \autoref{6coils}
+and \autoref{assembled-pickup}.
 
 \begin{figure}[!htpb]
   \centering
   \caption{Coils assembled}
   \label{6coils}
   \includegraphics[scale=0.08]{images/6coils}
-  \legend{Source: \citeonline{pickup-magnets}}
+  \legend{Source: Authors}
 \end{figure}
 
 \begin{figure}[!htpb]
