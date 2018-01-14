@@ -6,8 +6,8 @@ and algorithms control constants. The ideal case is to have both real time chart
 as well as a buffered/triggered one, essentially something like an oscilloscope.
 That has to be performant for real time audio signals, sampled at more than 47 kHz.\\
 There are a great amount of JavaScript DOM libraries for charting, but most of
-them are too automatic or have too much details, making them too slow for our need.
-The solution was to build our own library for that, again available as an open source
+them are too automatic or have too much details, making them too slow for the project need.
+The solution was to build an own library for that, again available as an open source
 project at both GitHub and npm \cite{react-plotter}.
 
 \subsection{Requirements}
@@ -50,7 +50,7 @@ of the algorithm are as follow:
 
 \subsection{Implementation}
 Using the listed requirements (\autoref{data-visualization-requirements}) a minimum
-API is built as a React component. Being such all it gives is a set of properties,
+API was built as a React component. Being such all it gives is a set of properties,
 for which the chart is drawn (when needed), they are listed in \autoref{react-plotter-props}.
 \begin{table}[htb]
   \ABNTEXreducedfont

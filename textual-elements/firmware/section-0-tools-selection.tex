@@ -13,7 +13,7 @@ through USB. Lets start by listing the requirements for the hardware.
   \item Fast USB support, to send the data with headers
 \end{itemlist}
 Based on this requirements the minimum transfer speed can be calculated, let's
-consider that a header will be set for every 252 samples (42 for each channel) and
+consider that a header will be set (SENT?) for every 252 samples (42 for each channel) and
 it has 4 bytes (3 of identification - to assure it is the header and not some
 data - and a counter). Previewing the worst case, each sample is 2 bytes long.
 The transfer rate given by \autoref{usb-generic-rate-equation}.
@@ -31,7 +31,7 @@ rate numerical result is given by \autoref{usb-numerical-rate-equation}.
   transfer\ rate = \left( \frac{6 * 2 * 252 + 4}{252}  \right ) * f_{s} = 12.0159 * f_{s} = 120.159 - 600.794 [kB/s]
 \end{equation}
 
-USB transfer speed is usually referred in Mbps, which gives us a range between
+USB transfer speed is usually referred in Mbps, which gives a range between
 961.27 and 4806.34 Mbps. This is too high for serial communication (typical max of
 1 Mbps) so we need to add a requirement for raw USB support, which allows bulk
 transfer that can a have transfer rate up to 12Mbps (USB full-speed standard).\\

@@ -3,7 +3,7 @@
 
 \subsection{Top Level Requirements}
 The exact implementation of each of the items will be discussed later, but to
-simply set our requirements a general list of them is:
+simply set the requirements a general list of them is:
 
 \begin{itemlist}
   \item Desktop GUI
@@ -30,7 +30,7 @@ compared to more modern UI programming, so a second approach came to be.
 
 \subsubsection{JavaScript}
 In alignment with both current work experience and world programming tendencies
-JavaScript was taken as a choice. We will see that requirements fit much better now,
+JavaScript was taken as a choice. It was seen that requirements fit much better now,
 for the following reasons. \\
 For the desktop GUI, JavaScript has a few nice and mature Desktop GUI frameworks,
 like Electron and NW.js. \\
@@ -46,13 +46,13 @@ in JavaScript using \textit{node-usb} \cite{node-usb}, and a few simple tests
 returned good results with a much simpler API. MIDI was also tested and worked just fine.
 
 \subsection{Desktop Framework}
-Now that JavaScript is set as our final selection we need an environment to run
+Now that JavaScript is set as the final selection we need an environment to run
 it. There are two already listed really mature and popular choices: Electron and NW.js. \\
 At first Electron was used to build a test application, because it is the most popular
 of the two (in fact even the editor used to write this words is built with it),
 but the pitch detection call was running slowly. As a mater of fact it was running
 much faster using pure JS code rather than the C++ library. A deeper research
-was needed, and the way Electron worked was getting in our way, but first it's
+was needed, and the way Electron worked was getting in the project way, but first it's
 necessary to know what Node.js is.
 
 \subsubsection{Interpreter}
@@ -86,12 +86,12 @@ execution as expected.
 
 \subsection{Architectural Tools}
 NW.js will go only as far as to give access to both Node and DOM API's. But that
-is too crude, and not what we wanted by given up on Java Swing. Again based on
+is too crude, and not what it was wanted by given up on Java Swing. Again based on
 current work experience and world tendencies the setup chosen is React + Redux. \\
 React \cite{React} is a library created by Facebook and world wide used for UI applications.
 It uses a declarative component-based system that makes it easy to build scalable
 and reusable code.\\
-React only go as far to help building the UI, but we also need to pass the state
+React only go as far to help building the UI, but it is also needed to pass the state
 of the application to the UI components, and that is where Redux \cite{Redux} comes in.
 It keeps all the application state stored in a single place, described by transition
 functions. That makes the storage system easy to be tested and used, because all
@@ -115,10 +115,10 @@ to build a well designed application.
 
 \subsection{Fast Signal Processing}
 Pitch detection is a heavy problem to solve, and good implementations are time
-consuming, so we need efficiency to run it real-time. The library already said
+consuming, so it is needed efficiency to run it real-time. The library already said
 to be used didn't actually existed, the only one available was a pure JavaScript
 library \cite{pitchfinder} which is not suitable for this project. The solution
-was to build our own library based on both the pure JavaScript one and TarsosDSP
+was to build an own library based on both the pure JavaScript one and TarsosDSP
 \cite{TarsosDSP}. Implementation details discussed further on \autoref{pitch-detection}.
 
 \subsection{Real Time Visualization}

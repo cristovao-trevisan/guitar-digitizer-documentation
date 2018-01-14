@@ -2,32 +2,32 @@
 \label{firmware-implementation}
 
 \subsection{First Attempt}
-We first tried to build our firmware from scratch, using the tools given by the
+We first tried to build the firmware from scratch, using the tools given by the
 manufacturer, essentially a set of driver abstractions (HAL drivers). The problem
 found is that these abstractions are too slow, and don't work when the firmware
 uses the hardware close to it's limits (as we do for both transfer and sampling rates).
 
 \subsection{Second Attempt}
-In our research we found a high quality open source project called MiniScope \cite{MiniScope},
+In the research it was found a high quality open source project called MiniScope \cite{MiniScope},
 in which a few options of low budget DIY digital scope (using different $\mu$Cs) are
-presented. One of the $\mu$Cs used by MiniScope is the one we selected, so for our
-implementation we took it's firmware as a base project. In this project the author
+presented. One of the $\mu$Cs used by MiniScope is the one selected, so for the
+implementation it was taken it's firmware as a base project. In this project the author
 claims to sample and transfer two channels at 461 kHz (but 8 bits only), which is
-very close to our needs (we need a little more transfer but much less sampling speed).
+very close to our needs (it is needed a little more transfer but much less sampling speed).
 
 \subsection{IDE}
-As we take MiniScope as a base project we will be using the same IDE as it, named
+As it was taken MiniScope as a base project it will be used the same IDE as it, named
 CooCox \cite{CooCox}. It has a full set of tools, and it's completely free (no limitations).
 
 \subsection{Modifications}
 The base project samples 2 channels at a different speed, bit rate and does not
 add any headers to the data. It also has some code to answer a few commands. It
 was as simple as setting up the registers for 6 channels, changing the sample size,
-placing our already chosen speed (\autoref{firmware-sample-frequency}) and removing
+placing the already chosen speed (\autoref{firmware-sample-frequency}) and removing
 any unused code. \\
 The act of changing the sample size was not done by registers. MiniScope was already
 sampling with 12 bits, but it was ignoring the least significant ones when filling
-the USB buffer. What we have done is to change the bits alignment and putting all
+the USB buffer. What was done is to change the bits alignment and putting all
 the data received from the ADC to the USB buffer.
 
 \subsection{Testing}

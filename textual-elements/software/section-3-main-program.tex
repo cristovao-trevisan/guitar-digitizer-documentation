@@ -71,7 +71,7 @@ page can be seen at \autoref{options-page}.
 \subsection{Implementation}
 
 \subsubsection{Resources}
-At first let's take a look at our resources:
+At first let's take a look at the resources:
 \begin{itemlist}
 	\item USB device: only one can be connected
 	\item MIDI devices: a list of them can be used at any time
@@ -85,10 +85,10 @@ a nice way. Taking these mentions in account three modules were built for resour
 easy access, being MIDI, USB and signal processing.
 
 \subsubsection{Entry Point}
-The entry point for our project is both a declarator and connector. It allocates
+The entry point for this project is both a declarator and connector. It allocates
 all needed structures (or calls the module that does it), the most significant one
 being the Redux store \cite{Redux} - store being a short for storage, which is
-where all of our application visible state is held. \\
+where all of the application visible state is held. \\
 The entry point also connects all callbacks and logic in a declarative way. In
 this single file all of the program's internal functionalities are declared,
 so much that if you read it you should also understand the entire program.
