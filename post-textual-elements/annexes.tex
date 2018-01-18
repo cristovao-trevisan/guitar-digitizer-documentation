@@ -17,27 +17,30 @@
 
 \chapter{Prototype Cost Table.}
 
-Costs are given on Brazilian Real.\\
+Costs are given on United States Dolar.\\
 \begin{table}[htb]
   \begin{center}
     \ABNTEXreducedfont
     \caption[Prototype Board Cost Table]{Prototype Board Cost Table}
     \label{Prototype-cost}
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{c|c|c}
+      \textbf{Component} & \textbf{Quantity} & \textbf{Cost} \\
     \hline
-    Component & Quantity & Cost \\ \hline
-    INA326 & 6 & 120.00\\ \hline
+    \hline
+    INA326 & 6 & 37.38\\ \hline
     10k$\Omega$ Trimmer Potentiometer & 6 & 7.50 \\ \hline
-    10nF Ceramic Capacitor & 6 & 1.00 \\ \hline
-    100nF Electrolytic Capacitor & 6 & 1.50 \\ \hline
-    10k$\Omega$ Resistor 5$\%$ tolerance & 12 & 2.00 \\ \hline
-    1M$\Omega$ Resistor 5$\%$ tolerance & 12 & 2.00 \\ \hline
-    Pin bar 1x40 & 1 & 3.00 \\ \hline
-    PCB & 2 & 50.00 \\ \hline
+    10nF Ceramic Capacitor & 6 & 2.34 \\ \hline
+    100nF Electrolytic Capacitor & 6 & 0.47 \\ \hline
+    10k$\Omega$ Resistor 5$\%$ tolerance & 12 & 0.62 \\ \hline
+    1M$\Omega$ Resistor 5$\%$ tolerance & 12 & 0.62 \\ \hline
+    Pin bar 1x40 & 1 & 0.93 \\ \hline
+    PCB & 2 & 15.57 \\ \hline
   \end{tabular}
   \legend{Source: authors}
 \end{center}
 \end{table}
+
+Total production cost for the prototype - 28,05
 
 \chapter{Production Cost Table.}
 
@@ -47,21 +50,24 @@ Costs are given on United States Dollar for production of 1000 devices.\\
     \ABNTEXreducedfont
     \caption[Production Board Prediction Cost Table]{Production Board Prediction Cost Table}
     \label{Production-cost}
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{c|c|c|c}
+      \textbf{Component} & \textbf{Quantity} & \textbf{Cost per Component} & \textbf{Total Cost} \\
      \hline
-    Component & Quantity & Cost per Component & Total Cost \\ \hline
-    INA326 & 6000 & 2.53071 & 15184.26\\ \hline
-    10k$\Omega$ Trimmer Potentiometer & 6000 & 2.16050 & 12963.00 \\ \hline
-    10nF Ceramic Capacitor & 6000 & 0.00233 & 13.98 \\ \hline
-    100nF Electrolytic Capacitor & 6000 & 0.04431 & 265.86 \\ \hline
-    10k$\Omega$ Resistor 1$\%$ tolerance & 12000 & 0.00649 & 77.88 \\ \hline
-    1M$\Omega$ Resistor 1$\%$ tolerance & 12000 & 0.00671 & 80.52 \\ \hline
-    Pin bar 1x40 & 1000 & 0.62240 & 622.40 \\ \hline
-    PCB & 1000 & 0.22 & 223.94 \\ \hline
+     \hline
+    INA326 & 6 & 2.53071 & 15.18\\ \hline
+    10k$\Omega$ SMD Trimmer Potentiometer & 6 & 2.16050 & 12.96 \\ \hline
+    10nF SMD Ceramic Capacitor & 6 & 0.00233 & 0.01 \\ \hline
+    100nF Electrolytic Capacitor & 6 & 0.04431 & 0.27 \\ \hline
+    10k$\Omega$ SMD Resistor 1$\%$ tolerance & 12 & 0.00649 & 0.08 \\ \hline
+    1M$\Omega$ SMD Resistor 1$\%$ tolerance & 12 & 0.00671 & 0.08 \\ \hline
+    Pin bar 1x40 & 1 & 0.62240 & 0.62 \\ \hline
+    PCB & 1 & 0.22 & 0.22 \\ \hline
   \end{tabular}
   \legend{Source: \citeonline{Digikey} and \citeonline{PCB-maker} }
 \end{center}
 \end{table}
+
+Total production cost considering 1000 boards - 14.24 per board
 
 \chapter{Main Program Test List.}
 \label{test-list}
@@ -118,7 +124,7 @@ Costs are given on United States Dollar for production of 1000 devices.\\
 		\begin{itemize}
 			\item should return correct data (2ms)
 		\end{itemize}
-	\end{itemize}\item 
+	\end{itemize}\item
 	\item object reducer
 	\begin{itemize}
 		\item	default value (3ms)
