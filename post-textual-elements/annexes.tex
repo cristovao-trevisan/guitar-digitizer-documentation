@@ -62,3 +62,92 @@ Costs are given on United States Dollar for production of 1000 devices.\\
   \legend{Source: \citeonline{Digikey} and \citeonline{PCB-maker} }
 \end{center}
 \end{table}
+
+\chapter{Main Program Test List.}
+\label{test-list}
+
+\begin{itemize}
+	\item Guitar Signal Processor
+	\begin{itemize}
+		\item interpreter
+		\begin{itemize}
+      \item should interpret correct data (152ms)
+      \item should throw error for wrong header (1ms)
+      \item should throw error for missing counter (1ms)
+      \item should throw error for missing data (1ms)
+			\item should start working again after a fail (5ms)
+	  \end{itemize}
+	  \item windowBuffer
+	  \begin{itemize}
+      \item should buffer until full and keep windowSize - windowDelta (29ms)
+		  \item should throw error if full (1ms)
+		\end{itemize}
+		\item guitarWindowBuffer
+		\begin{itemize}
+		  \item it's just 6 window buffers (32ms)
+		\end{itemize}
+		\item processor
+		\begin{itemize}
+      \item should detect correct note (22ms)
+      \item should not detect small amplitude note (8ms)
+      \item should detect amplitude changes (21ms)
+		\end{itemize}
+	\end{itemize}
+	\item calculator
+	\begin{itemize}
+		\item calculateAverageAmplitude
+		\begin{itemize}
+			\item should calculate correct value (3ms)
+			\item should remove DC component (2ms)
+		\end{itemize}
+	\end{itemize}
+	\item frequencyDetector
+	\begin{itemize}
+		\item YIN
+		\begin{itemize}
+			\item should resolve correct frequency (5ms)
+		\end{itemize}
+		\item MacLeod
+		\begin{itemize}
+    	\item should resolve correct frequency (6ms)
+		\end{itemize}
+	\end{itemize}
+	\item helpers
+	\begin{itemize}
+		\item repeat
+		\begin{itemize}
+			\item should return correct data (2ms)
+		\end{itemize}
+	\end{itemize}\item 
+	\item object reducer
+	\begin{itemize}
+		\item	default value (3ms)
+		\item should set correctly (3ms)
+		\item should remove correctly
+		\item should clear correctly (1ms)
+	\end{itemize}
+	\item signals reducer
+	\begin{itemize}
+		\item default value (3ms)
+		\item should add correctly (3ms)
+		\item should remove correctly (1ms)
+	\end{itemize}
+	\item devices reducer
+	\begin{itemize}
+		\item default value (2ms)
+		\item should add correctly (2ms)
+		\item should remove correctly (2ms)
+	\end{itemize}
+	\item device reducer
+	\begin{itemize}
+		\item default value (4ms)
+		\item should set correctly (3ms)
+		\item should remove correctly
+	\end{itemize}
+	\item signalsData reducer
+	\begin{itemize}
+		\item default value (1ms)
+		\item should add correctly (2ms)
+		\item should remove correctly (1ms)
+	\end{itemize}
+\end{itemize}

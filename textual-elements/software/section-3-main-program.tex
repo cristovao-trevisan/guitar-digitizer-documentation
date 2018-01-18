@@ -84,6 +84,18 @@ this means it works like a C++ namespace, keeping our static resources separated
 a nice way. Taking these mentions in account three modules were built for resource
 easy access, being MIDI, USB and signal processing.
 
+\subsubsection{Functional Programming}
+Functional programming is a paradigm that focus on software functionality over modeling.
+The state management library already chosen (Redux) is functional, which makes it very
+logical to choose this paradigm. \\
+So far this document has not said a word about how to model the resources, state or
+functionality as objects, and it won't ever, because it does not have any classes,
+except for the UI, which uses the class syntax to declare components, however they don't
+fall into the OOP paradigm, but into a specific UI component paradigm instead. \\
+As the Redux store keeps the all usable state (\autoref{reducers-table}) it is also
+used as a trigger for all given functionality. This means that any functionality that
+needs to be implemented will, directly or indirectly, listen and/or write to the Redux store.
+
 \subsubsection{Entry Point}
 The entry point for this project is both a declarator and connector. It allocates
 all needed structures (or calls the module that does it), the most significant one
@@ -95,7 +107,7 @@ so much that if you read it you should also understand the entire program.
 
 \subsubsection{Reducers}
 Redux stored data is not defined by a set a properties, like typical OOP applications,
-instead it uses a more functional programming paradigm. The storage is defined by transfer
+instead it uses the functional programming paradigm. The storage is defined by transfer
 functions, each of them describing actions that can modify the current state by
 returning a new one. Each of these functions, called reducer, receive two parameters -
 the current state and the action to be processed - and should return the new state
@@ -116,9 +128,9 @@ as in \autoref{reducers-table}.
 		\hline
 		signals & string[ ] & set, clear & list of signals \\
 		\hline
-		signalsData & object[ ]: {name: number[ ]} & set, clear & list of signals data (name and values) \\
+		signalsData & object: \{ name: number[ ] \} & set, clear & list of signals data (name and values) \\
 		\hline
-		object & object: any & set, clear, remove & Plot Page options \\
+		object & object & set, clear, remove & Plot Page options \\
 																					& & & General options \\
 																					& & & MIDI devices \\
 																					& & & Signal to MIDI connections \\
@@ -168,7 +180,8 @@ being close to it's know possible values, as in \autoref{pitch-range-table}.
 This is for now a prototype of a real world project, so it has a limited amount
 of tests. The tests fall into one of two categories: unity or timing. Unity tests
 are made for the signal processing relating modules and also for every reducer,
-these are all automated and sum up to a total of 31 tests over 9 modules. \\
+these are all automated and sum up to a total of 32 tests over 9 modules,
+listed at \autoref{test-list}, so to give an idea of how they work.
 The timing tests were used to check if each separated functionality that may
 cause processing issues can run in real-time. There are timing tests for: signal
 average value calculation, signal window buffering, raw data conversion,
