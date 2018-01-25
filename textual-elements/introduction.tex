@@ -36,3 +36,41 @@ in the current market.
     \legend{Source: authors}
   \end{center}
 \end{table}
+
+TODO: cost analysis
+
+\section{Social Motivation}
+Guitar music annotation is very expensive as of today. The reason for this is that
+it takes a lot of effort to write a music sheet. In the way to make music annotation
+cheaper and more accessible this project also aim to do this kind of work in a cheap
+and easy way (that does not even require the knowledge of music annotation). \\
+This would create great social meaning as it makes possible for everyone that play
+the guitar to quickly write down their own compositions and arrangements and thus
+share their culture to the world. \\
+In specific this project was thought for the people that make their own arrangements
+but don't share it because of the great time cost involved, most of them being YouTube
+guitar players all over the world. The few that do share their annotations today usually
+charge for it, thus blocking culture sharing. \\
+
+\section{Foremost Project Decisions}
+There are many ways to accomplish this objective, a few considered were through
+mechanical pressure detection, pure software (like the commercial solutions) and
+finally electromagnetic fields. \\
+Mechanical pressure (or buttons) was discarded because it is still needs to detect
+string vibration, which requires electromagnetic detection (to be cheap). But the latter can
+be used as the only input, so it does not make sense to use both. \\
+Software only detection is too hard to implement and does not guarantee good results.
+This approach is still being developed now days by using the most recent advanced
+techniques of machine learning. This is so state of the art that requires a really high
+amount of money and effort to accomplish, which is not compatible to our resources
+(as we are mere undergrad students). \\
+Electromagnetic detection is nothing new (it is the base principle of electric guitars).
+The only unusual approach we need is to get a separated signal for each string, thus
+removing most of the software complexity quoted above, because we can them deal
+with monophonic signals (as each string can only play one note at a time). It is
+still complex to build a project with this decision, but it is feasible, and so
+the chosen option.
+
+\section{Electromagnetic Field Detection Approach Considerations}
+TODO: explain high level architectural decisions, with flow diagram from: \\
+passive hardware  -> active hardware -> firmware -> software (divided by parts)
