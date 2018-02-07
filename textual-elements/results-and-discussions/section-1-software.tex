@@ -22,6 +22,6 @@ core processing and slow algorithms. \\
 One step of the solution is to use multi-core processing for the pitch detection,
 which can be done using Node.js support for it. \\
 As already stated (\autoref{pitch-detection-implementation}) the current implementation
-uses quadratic growth algorithms, when they can be implemented with logarithmic
+uses quadratic growth algorithms, while it can be improved to logarithmic
 growth. Fixing this will improve the performance to a point where multi-core processing
-won't be even needed.
+won't be even necessary.
