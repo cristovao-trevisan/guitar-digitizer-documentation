@@ -3,7 +3,9 @@
 
 The firmware is basically an analog sampler, all it has to do is sample six analog
 channels, add a header (to identify the beginning and check continuity) and send it
-through USB. Lets start by listing the requirements for the hardware.
+through USB. The following sections present the requirements of the system, details
+about the selection of the microcontroller and how the signal acquisition parameters
+(set by registers) were obtained.
 
 \subsection{Requirements}
 \begin{itemlist}
@@ -12,8 +14,8 @@ through USB. Lets start by listing the requirements for the hardware.
   \item High sample rate (at least 10 kHz for each channel, but ideally 44 kHz or more)
   \item Fast USB support, to send the data with headers
 \end{itemlist}
-Based on this requirements the minimum transfer speed can be calculated, let's
-consider that a header will be set for every 252 samples (42 for each channel) and
+Based on this requirements the minimum transfer speed can be calculated. Considering
+that a header will be set for every 252 samples (42 for each channel) and
 it has 4 bytes (3 of identification - to assure it is the header and not some
 data - and a counter). Previewing the worst case, each sample is 2 bytes long.
 The transfer rate given by \autoref{usb-generic-rate-equation}.
@@ -23,21 +25,21 @@ The transfer rate given by \autoref{usb-generic-rate-equation}.
   transfer\ rate = \left( \frac{channels * \frac{bytes}{sample} * \frac{samples}{package} + header\ size}{\frac{samples}{package}}  \right ) * f_{s} [B/s]
 \end{equation}
 
-Considering that $f_{s}$ has to be somewhere between 10 kHz and 50 kHz the transfer
+Considering that $f_{s}$ has to be somewhere between 10 kHz and 50 kHz, the transfer
 rate numerical result is given by \autoref{usb-numerical-rate-equation}.
 
 \begin{equation}
   \label{usb-numerical-rate-equation}
-  transfer\ rate = \left( \frac{6 * 2 * 252 + 4}{252}  \right ) * f_{s} = 12.0159 * f_{s} = 120.159 - 600.794 [kB/s]
+  transfer\ rate = \left( \frac{6 * 2 * 252 + 4}{252}  \right ) * f_{s} = 12.0159 * f_{s} = 120.159 to 600.794 [kB/s]
 \end{equation}
 
 USB transfer speed is usually referred in Mbps, which gives a range between
 961.27 and 4806.34 Mbps. This is too high for serial communication (typical max of
-1 Mbps) so we need to add a requirement for raw USB support, which allows bulk
-transfer that can a have transfer rate up to 12Mbps (USB full-speed standard).
+1 Mbps) so we need to add a requirement for raw USB support, which allows \textit{bulk transfers}
+that can a have transfer rate up to 12Mbps (USB full-speed standard).
 
-It still need to choose or exact sample rate ($f_{s}$), but first let's select which
-hardware will be used.
+It's still needed to choose or exact sample rate ($f_{s}$), but it is first necessary
+select which hardware will be used.
 
 \subsection{Microcontroller Selection}
 There are too many microcontrollers that fit our requirements, but the most popular

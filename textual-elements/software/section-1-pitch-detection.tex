@@ -48,11 +48,11 @@ non-trivial algorithms for pitch detection, and two of them will be discussed ne
 \end{figure}
 
 \subsection{YIN algorithm}
-Autocorrelation is a well know function to calculate a signal's fundamental
-frequency, but it gives too much error for this project use case. YIN \cite{YINArticle}
-is a method that uses a few improvements to the autocorrelation method, achieving
+Autocorrelation is a well know technique to calculate a signal's fundamental
+frequency, however it's sole usage does not deliver satisfactory accuracy for this project.
+YIN \cite{YINArticle} is a method that provide improvements to the autocorrelation method, achieving
 a much higher precision. It can also be implemented with logarithmic growth as the
-autocorrelation can be calculated using the fft and ifft algorithms. The algorithm
+autocorrelation can be calculated using the FFT and IFFT algorithms. The algorithm
 can be divided in 6 steps, as follows:
 \begin{enumerate}
   \item Autocorrelation
@@ -71,7 +71,7 @@ MacLeod \cite{MacLeodArticle} goes for another approach, using the square differ
 function. More precisely it uses a special normalized version of it. The best result
 is then calculated by means of using a parabolic interpolation of the highest
 peak and its two neighbors, this process also gives a threshold constant that limits
-the detection of the neighbors, thus the possibility of some tuning. As we will
+the detection of the neighbors, and thus the possibility of some tuning. As we will
 see this gave the best results for our project after some tuning.
 
 \subsection{Implementation}
@@ -81,7 +81,7 @@ Java code of TarsosDSP \cite{TarsosDSP} and replacing the syntax and data struct
 with C++ ones (using standard library for containers). There is also a JavaScript bridge
 for data type conversion, so we can use the library calls with simple arrays of numbers.
 
-The implementation is not using fft for logarithm growth yet (but quadratic growth
+The implementation is not using FFT for logarithm growth yet (but quadratic growth
 instead), following the TarsosDSP library. The faster implementation is kept as
 a goal for future improvement. All code is available as an open source project at
 Github and npm \cite{node-pitchfinder}.

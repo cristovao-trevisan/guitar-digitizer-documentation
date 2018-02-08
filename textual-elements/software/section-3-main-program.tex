@@ -22,8 +22,8 @@ When a device is selected it's signals will go through a simple process, as in \
 The home page has three horizontally divided sections: Device and signals, MIDI selection
 and list, and  finally connections, as in \autoref{home-page}. 
 
-The first is used to open the device (there can be only one used at a time). When it
-is open a list of signals will be displayed (six of them, named as each guitar note).
+The first is used to open the device (there can be only one used at a time). When opened
+a list of signals will be displayed (six of them, named as each guitar note).
 Each signal can be selected so it can be connected to a MIDI device.
 
 The second is to open any given number of existing MIDI devices, which will be listed
@@ -41,7 +41,7 @@ and MIDI, the connections are showed in the box bellow and can be deleted.
 \end{figure}
 
 \subsubsection{Plot}
-The Plot page is a simply a react-plotter \cite{react-plotter} component with a few
+The plot page is a react-plotter \cite{react-plotter} component with a few
 visual controls, being: a dropdown to select which signal is being displayed,
 a checkbox to enable trigger, a slider to control the time
 range and another slider to control the trigger value. The full page is as in \autoref{plot-page}.
@@ -57,14 +57,14 @@ This also makes the program a little more performant.
 \end{figure}
 
 \subsubsection{Options Page}
-The options page is simply an UI to control the used algorithm (from \autoref{pitch-detection})
-and it's parameters. For both Linux and macOS it's also possible to create virtual
-MIDI devices, from which our program can write and a synthesizer can read. For Windows
-this is still possible, but using a hacky solution (since Windows does not give any
+The options page is used to control the current algorithm (YIN or MacLeod, \autoref{pitch-detection})
+and it's parameters. For both Linux and macOS it is also possible to create virtual
+MIDI devices, to which our program can write and a synthesizer can read. For Windows
+this is still possible, but using a hacky solution (since Windows does not provide any
 official API for this) - the easiest option being LoopBe1 \cite{LoopBe1}. The
 page can be seen at \autoref{options-page}.
 \begin{figure}[htb]
-	\caption{Options Page}
+	\caption{Options Page showing MacLeod configurations}
 	\label{options-page}
 	\begin{center}
 		\includegraphics[width=0.7\paperwidth]{images/snapshots/options}
@@ -74,36 +74,36 @@ page can be seen at \autoref{options-page}.
 
 \subsection{Implementation}
 
-\subsubsection{Resources}
-At first let's take a look at the resources:
+\subsubsection{PC Operational System Resources}
+The PC operational system resources list is as follows:
 \begin{itemlist}
 	\item USB device: only one can be connected
-	\item MIDI devices: a list of them can be used at any time
-	\item Signals: fixed for the only connected device
+	\item MIDI devices: multiple of them can be used at any time
 \end{itemlist}
-It's easy to see they are all global, so they can be represented as static classes.
+
+Since they are all global, they can be represented as static classes.
 But JavaScript has good functional programming capabilities, which are very
-suitable for global resources. JavaScript imported modules are also scoped, by default,
-this means it works like a C++ namespace, keeping our static resources separated in
-a nice way. Taking these mentions in account three modules were built for resource
-easy access, being MIDI, USB and signal processing.
+suitable for global resources. JavaScript imported modules are also scoped by default,
+meaning that they work like a C++ namespace, keeping our static resources separated in
+a nice way. Taking into account these mentions, two modules were built for resource
+easy access, being MIDI and USB.
 
 \subsubsection{Functional Programming}
 Functional programming is a paradigm that focus on software functionality over modeling.
 The state management library already chosen (Redux) is functional, which makes it very
 logical to choose this paradigm. 
 
-So far this document has not said a word about how to model the resources, state or
-functionality as objects, and it won't ever, because it does not have any classes,
-except for the UI, which uses the class syntax to declare components, however they don't
+So far this document has not said a word about how to model the following software structures
+using OOP:  resources, state or functionality. And it won't ever, because it does not have any classes,
+except for the UI, which uses the class syntax to declare components. However, they don't
 fall into the OOP paradigm, but into a specific UI component paradigm instead. 
 
-As the Redux store keeps the all usable state (\autoref{reducers-table}) it is also
+As the \textit{Redux store} keeps the all usable state (\autoref{reducers-table}), it is also
 used as a trigger for all given functionality. This means that any functionality that
 needs to be implemented will, directly or indirectly, listen and/or write to the Redux store.
 
 \subsubsection{Entry Point}
-The entry point for this project is both a declarator and connector. It allocates
+The entry point for this program is both a declarator and connector. The entry point allocates
 all needed structures (or calls the module that does it), the most significant one
 being the Redux store \cite{Redux} - store being a short for storage, which is
 where all of the application visible state is held. 
@@ -148,10 +148,14 @@ as in \autoref{reducers-table}.
 \end{table}
 
 \subsubsection{Note Calculation}
-To calculate the note a few steps are shown in \autoref{note-detection-diagram}.
-The amplitude calculation is a simple absolute average removing the mean. The
-pitch within range is a function that limits each string frequency to
-being close to it's know possible values, as in \autoref{pitch-range-table}.
+The flow chart in \autoref{note-detection-diagram} presents how the note calculation
+process work. The amplitude calculation is an absolute average removing the mean, as in
+\autoref{amplitude-calculation-equation}. The \textit{pitch within range} is a function that limits
+each string frequency to being close to it's known possible values, as in \autoref{pitch-range-table}.
+\begin{equation}
+  \label{amplitude-calculation-equation}
+  Mean = \frac{\sum_{i=0}^{N}{\left | x_{i} \right |}}{N}\\
+	Amplitude = \frac{\sum_{i=0}^{N}{\left | x_{i} - Mean \right |}}{N}\end{equation}
 \begin{figure}[htb]
 	\caption{Note Detection Diagram}
 	\label{note-detection-diagram}
@@ -184,12 +188,13 @@ being close to it's know possible values, as in \autoref{pitch-range-table}.
   \legend{Source: authors}
 \end{table}
 
-\subsubsection{Tests}
-This is for now a prototype of a real world project, so it has a limited amount
-of tests. The tests fall into one of two categories: unity or timing. Unity tests
+\subsubsection{PC Software Testing}
+The tests implemented at this point do not regard the acquired signals from musical instrument,
+but focus on simulation of the functionalities of each software module.
+The tests fall into one of two categories: unity or timing. Unity tests
 are made for the signal processing relating modules and also for every reducer,
 these are all automated and sum up to a total of 32 tests over 9 modules,
-listed at \autoref{test-list}, so to give an idea of how they work.
+listed at \autoref{test-list}, it order to give an idea of how they work.
 The timing tests were used to check if each separated functionality that may
 cause processing issues can run in real-time. There are timing tests for: signal
 average value calculation, signal window buffering, raw data conversion,
