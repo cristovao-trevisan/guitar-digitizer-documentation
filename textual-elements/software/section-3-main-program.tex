@@ -4,7 +4,8 @@
 The general idea is to build an UI with three main divisions: Home (with device
 selection), midi selection and signal-to-MIDI connections, Plot (with the signal
 visualization) and Options (with the algorithm tuning options, as well as virtual
-MIDI creation).\\
+MIDI creation).
+
 When a device is selected it's signals will go through a simple process, as in \autoref{signals-flow-diagram}.
 \begin{figure}[htb]
 	\caption{Signals Flow Diagram}
@@ -19,12 +20,15 @@ When a device is selected it's signals will go through a simple process, as in \
 
 \subsubsection{Home}
 The home page has three horizontally divided sections: Device and signals, MIDI selection
-and list, and  finally connections, as in \autoref{home-page}. \\
+and list, and  finally connections, as in \autoref{home-page}. 
+
 The first is used to open the device (there can be only one used at a time). When it
 is open a list of signals will be displayed (six of them, named as each guitar note).
-Each signal can be selected so it can be connected to a MIDI device.\\
+Each signal can be selected so it can be connected to a MIDI device.
+
 The second is to open any given number of existing MIDI devices, which will be listed
-bellow (can be also closed). The listed devices can also be selected, but only one at a time. \\
+bellow (can be also closed). The listed devices can also be selected, but only one at a time. 
+
 The final section is used to establish the connections, given the selected signals
 and MIDI, the connections are showed in the box bellow and can be deleted.
 \begin{figure}[htb]
@@ -87,11 +91,13 @@ easy access, being MIDI, USB and signal processing.
 \subsubsection{Functional Programming}
 Functional programming is a paradigm that focus on software functionality over modeling.
 The state management library already chosen (Redux) is functional, which makes it very
-logical to choose this paradigm. \\
+logical to choose this paradigm. 
+
 So far this document has not said a word about how to model the resources, state or
 functionality as objects, and it won't ever, because it does not have any classes,
 except for the UI, which uses the class syntax to declare components, however they don't
-fall into the OOP paradigm, but into a specific UI component paradigm instead. \\
+fall into the OOP paradigm, but into a specific UI component paradigm instead. 
+
 As the Redux store keeps the all usable state (\autoref{reducers-table}) it is also
 used as a trigger for all given functionality. This means that any functionality that
 needs to be implemented will, directly or indirectly, listen and/or write to the Redux store.
@@ -100,7 +106,8 @@ needs to be implemented will, directly or indirectly, listen and/or write to the
 The entry point for this project is both a declarator and connector. It allocates
 all needed structures (or calls the module that does it), the most significant one
 being the Redux store \cite{Redux} - store being a short for storage, which is
-where all of the application visible state is held. \\
+where all of the application visible state is held. 
+
 The entry point also connects all callbacks and logic in a declarative way. In
 this single file all of the program's internal functionalities are declared,
 so much that if you read it you should also understand the entire program.
@@ -111,7 +118,8 @@ instead it uses the functional programming paradigm. The storage is defined by t
 functions, each of them describing actions that can modify the current state by
 returning a new one. Each of these functions, called reducer, receive two parameters -
 the current state and the action to be processed - and should return the new state
-for the action (or the current one if there are no changes). \\
+for the action (or the current one if there are no changes). 
+
 Our program has nine reducers, but five of them share the same transfer function,
 as in \autoref{reducers-table}.
 \begin{table}[htb]

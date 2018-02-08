@@ -1,14 +1,43 @@
 \section{Software Results and Discussions}
 
-\subsection{Results}
-TODO: measurements and analysis
+\subsection{Measurements}
+For the quantification of how well our system works we need some measurements.
+A few tests were thought and measured, according to \autoref{measurements}.
+For each test line at least 10 measurements were made. The results show that
+our system does work but has a lot of room to improve, the means to achieve
+better results will be discussed in the next section.
+
+\begin{table}[htb]
+  \begin{center}
+    \ABNTEXreducedfont
+    \caption[Measurements]{Measurements}
+    \label{measurements}
+    \begin{tabular}{p{10cm}|c|c}
+      \hline
+      Test Description & Result/Accuracy & Measurements\\
+      \hline \hline
+      Single string pluck single note & XX\% & Y\\ \hline
+      Single string 2 notes sequence with a semitone distance & XX\% & Y \\ \hline
+      Single string 2 notes sequence with a 3 tones distance & XX\% & Y \\ \hline
+      2 consecutive strings single note each & XX\% & Y \\ \hline
+      2 consecutive strings 2 notes sequence with a semitone distance & XX\% & Y \\ \hline
+      2 consecutive strings 2 notes sequence with a 3 tones distance & XX\% & Y \\ \hline
+      G Major Chord & XX\% & Y \\ \hline
+      A Major Chord & XX\% & Y \\ \hline
+      B Minor Chord & XX\% & Y \\ \hline
+      \hline
+    \end{tabular}
+    \legend{Source: Authors}
+  \end{center}
+\end{table}
 
 \subsection{Future Improvements}
 \subsubsection{Note Detection}
 Real time note detection proved not to be so accurate. Legato (connected) notes
 may cause a middle note detection and there are miss-detections (mostly at frequency
 transitions). It works well enough for live play of MIDI instruments, but not
-for music notation. \\
+for music notation. 
+
 For real world music notation a different solution is needed: record the signals
 and post-process them. This way it is possible to use a more detailed analysis
 of each signal and thus get very good results, as there is much more computing
@@ -18,10 +47,30 @@ power available when not being limited by real-time processing.
 Though real time analysis work, a few limitations were detected. Buffering can only
 process each data point one time (can't use a sliding buffer that recycles data).
 This means that we are close to the processing limits, due to two causes: single
-core processing and slow algorithms. \\
+core processing and slow algorithms. 
+
 One step of the solution is to use multi-core processing for the pitch detection,
-which can be done using Node.js support for it. \\
+which can be done using Node.js support for it. 
+
 As already stated (\autoref{pitch-detection-implementation}) the current implementation
 uses quadratic growth algorithms, while it can be improved to logarithmic
 growth. Fixing this will improve the performance to a point where multi-core processing
 won't be even necessary.
+
+\subsubsection{Algorithm Improvements}
+A few algorithm modifications may also improve the project's results. Most noticeable
+would be the above mentioned buffering to process each input multiple times, with a
+sliding window - which needs performance improvements first.
+
+Another change necessary would be to remove co-channel interference in a more fashioned
+way other than amplitude check, making it easier for the pitch detection algorithm to work.
+
+\subsubsection{New Features}
+A main feature not yet implemented is also necessary: vibrato detection. Vibrato is the
+note's small variation of frequency without changing to another note. This is widely used
+by musicians and needs to be implemented, but has not been considered yet.
+
+As already mentioned recording will be a breaking change to the system. The ability to have
+more processing power due to not run in real time can greatly improve the system accuracy.
+It also makes possible to look ahead of time to check with more precision a single moment
+(as notes are frequencies time is an important matter).

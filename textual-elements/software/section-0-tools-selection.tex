@@ -18,7 +18,8 @@ simply set the requirements a general list of them is:
 \subsubsection{Java}
 The first choice was Java, as it meets all requirements. Desktop GUI can be done
 using Swing, a good library for pitch detection is also available (called TarsosDSP \cite{TarsosDSP}).
-There is also a binding to libusb called usb4java and native MIDI support. \\
+There is also a binding to libusb called usb4java and native MIDI support. 
+
 Following that idea a functional prototype was built, but a few problems came to rise.
 The first is that usb4java high-level API had bugs and was not working correctly.
 The solution was to fall back to the lower level API, but that made things much
@@ -31,23 +32,28 @@ compared to more modern UI programming, so a second approach came to be.
 \subsubsection{JavaScript}
 In alignment with both current work experience and world programming tendencies
 JavaScript was taken as a choice. It was seen that requirements fit much better now,
-for the following reasons. \\
+for the following reasons. 
+
 For the desktop GUI, JavaScript has a few nice and mature Desktop GUI frameworks,
-like Electron and NW.js. \\
+like Electron and NW.js. 
+
 JavaScript is an interpreted language, and for that has a low efficiency when
 compared to C++ or Java. That is huge problem, but there is an easy overcome. As
 this project tries to build a desktop application, Node.js will be used ultimately,
 and it has support for C++ bindings. That means the JavaScript code can call a
-compiled C++ library to calculate the pitch, thus solving the problem. \\
+compiled C++ library to calculate the pitch, thus solving the problem. 
+
 Graph visualization should not be a problem either as there are a lot of libraries
-for that. \\
+for that. 
+
 The most problematic requirement in Java was \textit{libusb} support. It is available
 in JavaScript using \textit{node-usb} \cite{node-usb}, and a few simple tests
 returned good results with a much simpler API. MIDI was also tested and worked just fine.
 
 \subsection{Desktop Framework}
 Now that JavaScript is set as the final selection we need an environment to run
-it. There are two already listed really mature and popular choices: Electron and NW.js. \\
+it. There are two already listed really mature and popular choices: Electron and NW.js. 
+
 At first Electron was used to build a test application, because it is the most popular
 of the two (in fact even the editor used to write this words is built with it),
 but the pitch detection call was running slowly. As a mater of fact it was running
@@ -61,7 +67,8 @@ common one is Google V8, which happens to be the same one used in most web
 browsers as well as in Node. The difference between browsers and Node is simply
 the API that comes with them. Web needs firstly to access the UI (html) and ways to
 modify it, it also needs secure and limited access to hardware and internet calls.
-Of course that means web JavaScript code cannot use C++ libraries directly. \\
+Of course that means web JavaScript code cannot use C++ libraries directly. 
+
 On the other hand Node is a more pure version of V8, it also gives the possibility
 to write and call C++ code (feature needed for this project), which ultimately
 makes it as capable as any desktop
@@ -87,20 +94,24 @@ execution as expected.
 \subsection{Architectural Tools}
 NW.js will go only as far as to give access to both Node and DOM API's. But that
 is too crude, and not what it was wanted by given up on Java Swing. Again based on
-current work experience and world tendencies the setup chosen is React + Redux. \\
+current work experience and world tendencies the setup chosen is React + Redux. 
+
 React \cite{React} is a library created by Facebook and world wide used for UI applications.
 It uses a declarative component-based system that makes it easy to build scalable
-and reusable code.\\
+and reusable code.
+
 React only go as far to help building the UI, but it is also needed to pass the state
 of the application to the UI components, and that is where Redux \cite{Redux} comes in.
 It keeps all the application state stored in a single place, described by transition
 functions. That makes the storage system easy to be tested and used, because all
 actions (that modify the state) must be well defined and it doesn't rely on the
-UI (React), making it easy to test.\\
+UI (React), making it easy to test.
+
 \autoref{react-redux-diagram} shows the flow of an application that uses
 React + Redux. It is obvious to see the simplicity it has, a single path must be followed.
 This simplicity is what makes it much easier to use against other frameworks like
-Java Swing. \\
+Java Swing. 
+
 There is still the choice of the visual library to use, and the chosen one is
 Semantic UI React \cite{semantic-ui}. It has some nice and robust React components
 to build a well designed application.

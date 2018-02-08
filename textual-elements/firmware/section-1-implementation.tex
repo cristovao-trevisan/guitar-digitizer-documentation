@@ -24,7 +24,8 @@ The base project samples 2 channels at a different speed, bit rate and does not
 add any headers to the data. It also has some code to answer a few commands. It
 was as simple as setting up the registers for 6 channels, changing the sample size,
 placing the already chosen speed (\autoref{firmware-sample-frequency}) and removing
-any unused code. \\
+any unused code. 
+
 The act of changing the sample size was not done by registers. MiniScope was already
 sampling with 12 bits, but it was ignoring the least significant ones when filling
 the USB buffer. What was done is to change the bits alignment and putting all
@@ -32,7 +33,8 @@ the data received from the ADC to the USB buffer.
 
 \subsection{Testing}
 At first an attempt using the OS (Windows at that time, later Ubuntu) default driver
-as made. That did not work well, as it is too generic and thus slow. \\
+as made. That did not work well, as it is too generic and thus slow. 
+
 At a second try, a simple libusb \cite{libusb} program was built to test the transfer
 rate (calculated in \autoref{firmware-sample-frequency}). The reported result is
 almost perfectly the calculated one.

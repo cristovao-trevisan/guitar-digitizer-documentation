@@ -34,17 +34,20 @@ rate numerical result is given by \autoref{usb-numerical-rate-equation}.
 USB transfer speed is usually referred in Mbps, which gives a range between
 961.27 and 4806.34 Mbps. This is too high for serial communication (typical max of
 1 Mbps) so we need to add a requirement for raw USB support, which allows bulk
-transfer that can a have transfer rate up to 12Mbps (USB full-speed standard).\\
+transfer that can a have transfer rate up to 12Mbps (USB full-speed standard).
+
 It still need to choose or exact sample rate ($f_{s}$), but first let's select which
 hardware will be used.
 
 \subsection{Microcontroller Selection}
 There are too many microcontrollers that fit our requirements, but the most popular
 and cheap one is clearly the ARM from ST called STM32F103C8T6 \cite{STM32F103},
-and that is why it was selected. \\
+and that is why it was selected. 
+
 It has eight 12 bits ADC inputs (with 2 parallel channels), DMA for the ADCs and USB full-speed support. It's
-also relatively fast (72 MHz clock, 32 bits architecture). All this for under 2 U\$D
-in a developing board from China (the actual $\mu$C is under 0.2 U\$). \\
+also relatively fast (72 MHz clock, 32 bits architecture). All this for under 2 US\$
+in a developing board from China (the actual $\mu$C is under 0.2 U\$). 
+
 The board an it's pinout can be seen in \autoref{STM32F103-board}.
 
 \begin{figure}[htb]
@@ -60,11 +63,13 @@ The board an it's pinout can be seen in \autoref{STM32F103-board}.
 Usage of the ADCs for the selected $\mu$C can be optimized by using continuous sampling
 mode in conjunction with DMA \cite[ch. 11]{STM32F103}. In this mode the sample frequency is controlled by a register
 that sets the convolution time, which gives more precision the more ADC clock
-cycles (longer) it takes to sample.\\
+cycles (longer) it takes to sample.
+
 The first variable chosen for this setup is the ADC clock, which is set by dividing
 the $\mu$C clock by 2, 4, 6 or 8. The ADC also has a maximum clock of 14 MHz. Taking in
 account the  $\mu$C clock of 72 MHz, the highest possible value for the ADC clock is 12 MHz,
-which is set by a divider value of 6. \\
+which is set by a divider value of 6. 
+
 The last value to be chosen is the mentioned convolution time ($T_{c}$ is calculated as the selected
 value plus 12.5 ADC clock cycles), which gives a sample frequency calculate by \autoref{ADC-sampling-time}.
 

@@ -79,7 +79,8 @@ see this gave the best results for our project after some tuning.
 Implementation for both algorithms follow the same pattern, taking the pretty
 Java code of TarsosDSP \cite{TarsosDSP} and replacing the syntax and data structures
 with C++ ones (using standard library for containers). There is also a JavaScript bridge
-for data type conversion, so we can use the library calls with simple arrays of numbers.\\
+for data type conversion, so we can use the library calls with simple arrays of numbers.
+
 The implementation is not using fft for logarithm growth yet (but quadratic growth
 instead), following the TarsosDSP library. The faster implementation is kept as
 a goal for future improvement. All code is available as an open source project at
