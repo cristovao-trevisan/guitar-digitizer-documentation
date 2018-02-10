@@ -26,7 +26,7 @@ s2 = np.array([
   0 ])
 rects2 = ax.bar(ind + width, y2, width, color='r', yerr=s2)
 
-ax.set_ylabel('Accuracy')
+ax.set_ylabel('Accuracy  (% of note)')
 ax.set_xlabel('String')
 ax.set_xticks(ind + width / 2)
 ax.set_xticklabels(('e', 'B', 'G', 'A', 'E'))

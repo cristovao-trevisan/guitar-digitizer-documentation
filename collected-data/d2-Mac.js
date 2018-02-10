@@ -29,10 +29,6 @@ module.exports = [
     'note': 48.36
   },
   {
-    'id': 5,
-    'note': 48.34
-  },
-  {
     'id': 6,
     'note': 49.17
   },
@@ -75,10 +71,6 @@ module.exports = [
   {
     'id': 6,
     'note': 49.15
-  },
-  {
-    'id': 5,
-    'note': 49.48
   },
   {
     'id': 6,
@@ -145,10 +137,6 @@ module.exports = [
     'note': 51.14
   },
   {
-    'id': 5,
-    'note': 51.39
-  },
-  {
     'id': 6,
     'note': 51.03
   },
@@ -195,10 +183,6 @@ module.exports = [
   {
     'id': 5,
     'note': 51.98
-  },
-  {
-    'id': 6,
-    'note': 39.86
   },
   {
     'id': 5,
@@ -503,10 +487,6 @@ module.exports = [
   {
     'id': 2,
     'note': 66.92
-  },
-  {
-    'id': 3,
-    'note': 66.99
   },
   {
     'id': 2,

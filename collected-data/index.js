@@ -1,10 +1,13 @@
-/* eslint-disable no-unused-vars */
 const d1Mac = require('./d1-Mac')
 const d1YIN = require('./d1-YIN')
 const EYIN = require('./E-YIN')
 const EMac = require('./E-Mac')
 const AmYIN = require('./Am-YIN')
 const AmMac = require('./Am-Mac')
+const pluckMac = require('./pluck-Mac')
+const pluckYIN = require('./pluck-YIN')
+const d2Mac = require('./d2-Mac')
+const d2YIN = require('./d2-YIN')
 
 const calculateMean = arr => arr.reduce((a, b) => a + b) / arr.length
 const calculateStandardDeviation = arr => {
@@ -18,6 +21,21 @@ const calculateAccuracy = arr => {
     return acc
   }, 0) / arr.length
 }
+const accumulateCloseNeighbors = arr => arr.reduce((acc, { id, note }) => {
+  const lastItem = acc[acc.length - 1]
+  if (acc.length === 0 ||
+    lastItem.id !== id ||
+    Math.round(note) !== lastItem.note) {
+    return acc.concat({ id, note: Math.round(note) })
+  }
+  return acc
+}, [])
+const calculateNeighborhoodError = arr => arr.reduce((acc, { note, id }, i) => {
+  if (i > 0 && Math.abs(Math.round(note) - Math.round(arr[i - 1].note)) > 1) {
+    return acc + 1
+  }
+  return acc
+}, 0) / arr.length
 
 const d1MacMap = d1Mac.reduce((acc, { id, note }) => ({
   ...acc,
@@ -109,3 +127,26 @@ const chordAmMacAccuracy = chordAmMacMean.map((x, i) => Math.abs(x - chordAmMacE
 console.log('chordAmMacMean', chordAmMacMean)
 console.log('chordAmMacDev', chordAmMacDev)
 console.log('chordAmMacAccuracy', chordAmMacAccuracy)
+
+const d2MacMap = d2Mac.reduce((acc, { id, note }) => ({
+  ...acc,
+  [id]: (acc[id] || []).concat({ id, note })
+}), {})
+const d2MacArray = Object.keys(d2MacMap).sort().map(key => d2MacMap[key])
+const d2MacParsed = d2MacArray.map(accumulateCloseNeighbors)
+const d2MacError = d2MacParsed
+  .map(calculateNeighborhoodError)
+console.log('d2MacError', d2MacError)
+
+const d2YINMap = d2YIN.reduce((acc, { id, note }) => ({
+  ...acc,
+  [id]: (acc[id] || []).concat({ id, note })
+}), {})
+const d2YINArray = Object.keys(d2YINMap).sort().map(key => d2YINMap[key])
+const d2YINParsed = d2YINArray.map(accumulateCloseNeighbors)
+const d2YINError = d2YINParsed
+  .map(calculateNeighborhoodError)
+console.log('d2YINError', d2YINError)
+
+console.log('pluckMacHits', pluckMac.length)
+console.log('pluckYINHits', pluckYIN.length)

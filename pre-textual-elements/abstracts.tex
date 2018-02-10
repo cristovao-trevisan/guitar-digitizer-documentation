@@ -2,41 +2,54 @@
 
 % summary in english
 \begin{summary}[Abstract]
-  Guitar are one of most popular instruments today, but there is one big disadvantage
-  to use it: there is no good and affordable way to digitize it's music. The
-  biggest problem with this is the cost to annotate music, as it needs to be done
-  by manually. This project tries to build one such system, starting from passive
-  hardware (hexaphonic pickup) to modern signal processing (pitch detection),
-  attempting to produce a cheap and effective equipment for guitar music annotation
-  by means of generating MIDI format data.
+This work presents a complete system for guitar signal acquirement and processing, in order to translate
+the raw audio signal to the corresponding musical notes. It is important to mention that, while this is
+relatively easy to be accomplished in instruments that have separated keys for each note (e.g. piano),
+this is not the case for instruments like the guitar – the one addressed in this work – that have a single
+output for multiple notes (each string has about 15 notes). The guitar is a harmonic instrument, as it can
+play multiple notes simultaneously, making the translation a challenging task. The proposed approach
+employs a specially designed pickup, developed and constructed by the authors, with dedicated coils for
+each string (in contrast to the single coil regular models). Audio amplifiers based on INA326 OPAMPs
+condition the coils’ signals, which are further converted to digital by an acquisition module based on an
+ARM Cortex M3 microcontroller, model STM32F103C8T6. The digital samples are transferred to a PC
+through the USB bus and processed using pitch detection algorithms. The software is based on
+contemporary tools such as Node, NW.js, React+Redux and Functional Programming. Special emphasis
+has been dedicated to the applied nature of the project, in the sense that the goal was to obtain a
+\emph{ready-to-use} prototype, despite the limitations on the accuracy of the final translation. In other
+words, the present work does not focus on state-of-the-art signal processing approaches in order to
+obtain a near perfect translation. Instead, it prioritizes an effective hardware and software architecture
+aiming a completely functional system for real-time guitar signal translation into the corresponding
+notes. Two pitch detection algorithms were evaluated: YIN and McLeod. Results show that YIN algorithm
+performs better for this application, achieving decent accuracy values in the practical experiments.
 
 
-  \textbf{Key-words}: guitar. digitizer. MIDI. pitch. detection. hexaphonic.
+  \textbf{Key-words}: Guitar digitizer, MIDI, pitch detection, hexaphonic.
 \end{summary}
 
 % summary in portuguese
-\begin{summary}[Resumo]
-  \begin{otherlanguage*}{portuguese}
-    Violões e guitarras estão entre os instrumentos mais populares da atualidade,
-    mas existe uma grande desvantagem em os utilizar: não há um meio barato e eficaz
-    para digitalizar sua música. O grande problema com isso é o alto custo para
-    transcrever partituras, que atualmente é um processo manual. Esse projeto tenta
-    construir um sistema com esse propósito, criando desde sensores passivos (captador
-    hexafônico) até processamento digital de sinais moderno (detecção de nota),
-    visando um produto barato e eficaz para anotação musical através da geração de
-    dados no format MIDI.
-
-    \textbf{Key-words}: guitarra. digitalizador. MIDI. nota. detecção. hexafônico.
-  \end{otherlanguage*}
-
-\end{summary}
+% \begin{summary}[Resumo]
+%  \begin{otherlanguage*}{portuguese}
+%    Violões e guitarras estão entre os instrumentos mais populares da atualidade,
+%    mas existe uma grande desvantagem em os utilizar: não há um meio barato e eficaz
+%    para digitalizar sua música. O grande problema com isso é o alto custo para
+%    transcrever partituras, que atualmente é um processo manual. Esse projeto tenta
+%    construir um sistema com esse propósito, criando desde sensores passivos (captador
+%%    hexafônico) até processamento digital de sinais moderno (detecção de nota),
+%    visando um produto barato e eficaz para anotação musical através da geração de
+%    dados no format MIDI.
+%
+%    \textbf{Key-words}: guitarra. digitalizador. MIDI. nota. detecção. hexafônico.
+%  \end{otherlanguage*}
+%
+%\end{summary}
 
 % ----------------------------- NOT COMPILED -----------------------------------
 % % summary in french
 % \begin{summary}[Résumé]
 %  \begin{otherlanguage*}{french}
 %     Il s'agit d'un résumé en français.
-%
+%This work presents a complete system for guitar signal acquirement and processing, in order to translate the raw audio signal to the corresponding musical notes. It is important to mention that, while this is relatively easy to be accomplished in instruments that have separated keys for each note (e.g. piano), this is not the case for instruments like the guitar – the one addressed in this work – that have a single output for multiple notes (each string has about 15 notes). The guitar is a harmonic instrument, as it can play multiple notes simultaneously, making the translation a challenging task. The proposed approach employs a specially designed pickup, developed and constructed by the authors, with dedicated coils for each string (in contrast to the single coil regular models). Audio amplifiers based on INA326 OPAMPs condition the coils’ signals, which are further converted to digital by an acquisition module based on an ARM Cortex M3 microcontroller, model STM32F103C8T6. The digital samples are transferred to a PC through the USB bus and processed using pitch detection algorithms. The software is based on contemporary tools such as Node, NW.js, React+Redux and Functional Programming. Special emphasis has been dedicated to the applied nature of the project, in the sense that the goal was to obtain a \emph{ready-to-use} prototype, despite the limitations on the accuracy of the final translation. In other words, the present work does not focus on state-of-the-art signal processing approaches in order to obtain a near perfect translation. Instead, it prioritizes an effective hardware and software architecture aiming a completely functional system for real-time guitar signal translation into the corresponding notes. Two pitch detection algorithms were evaluated: YIN and McLeod. Results show that YIN algorithm performs better for this application, achieving decent accuracy values in the practical experiments.
+
 %    \textbf{Mots-clés}: latex. abntex. publication de textes.
 %  \end{otherlanguage*}
 % \end{summary}
