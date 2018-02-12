@@ -16,6 +16,11 @@
 \usepackage[brazilian,hyperpageref]{backref} % References quotations
 \usepackage[alf]{abntex2cite} % ABNT default quotations
 
+\usepackage{setspace}
+\ifthenelse{\isundefined{\@currsize}}
+  {\providecommand{\setstretch}[1]{\def\baselinestretch{#1}\normalsize}}
+  {\providecommand{\setstretch}[1]{\def\baselinestretch{#1}\@currsize}}
+
 % PACKAGES CONFIGURATIONS
 % backref
 \renewcommand{\backrefpagesname}{Quoted in page(s):~}
@@ -36,5 +41,6 @@
 
 % ENGLISH TRANSLATION
 \input{configurations/english-macros} % Translate abntex macros to english
+\input{configurations/cover} % Translate abntex macros to english
 % Just use the next file to tranlate any portuguese word in the bibliography
 \bibliographystyle{configurations/english-abntex-cite} % Translate bibliography

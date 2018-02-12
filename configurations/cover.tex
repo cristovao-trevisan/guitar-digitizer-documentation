@@ -1,0 +1,71 @@
+\providecommand{\printcourse}{}
+\newcommand{\course}[1]{\renewcommand{\printcourse}{#1}}
+
+\providecommand{\printdepartment}{}
+\newcommand{\department}[1]{\renewcommand{\printdepartment}{#1}}
+
+\providecommand{\printauthorone}{}
+\newcommand{\authorone}[1]{\renewcommand{\printauthorone}{#1}}
+
+\providecommand{\printauthortwo}{}
+\newcommand{\authortwo}[1]{\renewcommand{\printauthortwo}{#1}}
+
+\renewcommand{\printcover}{
+	\begin{cover}
+		\begin{center}
+			\MakeUppercase{\printinstitution} \\
+			\MakeUppercase{\printcourse} \\
+			\MakeUppercase{\printdepartment} \\
+		\end{center}
+		\vspace{12pt}
+		\begin{center}
+			\MakeUppercase{\printauthorone} \\
+			\MakeUppercase{\printauthortwo} \\
+		\end{center}
+		\vfill
+		\begin{center}
+			\bfseries\slshape\large
+			\MakeUppercase{\printtitle}
+		\end{center}
+		\vfill
+		\begin{center}
+			\MakeUppercase{\printtypeofdocument}
+		\end{center}
+		\vfill
+		\begin{center}
+			\MakeUppercase{\printlocal}\par
+			\MakeUppercase{\printdate}
+		\end{center}
+	\end{cover}
+}
+
+\renewcommand{\printcoversheet}{
+	\begin{cover}
+		\begin{center}
+			\MakeUppercase{\printauthorone} \\
+			\MakeUppercase{\printauthortwo} \\
+		\end{center}
+
+		\vfill
+		\begin{center}
+			\bfseries\slshape\large
+			\MakeUppercase{\printtitle}
+		\end{center}
+
+		\vfill
+		\hspace{.45\textwidth}
+		\begin{minipage}{.5\textwidth}
+			% Espaço simples
+			\printpreamble \\ \\
+			Advisor: \printadvisor
+		\end{minipage}
+
+		\vfill
+
+		\begin{center}
+			\printlocal
+			\setlength{\parskip}{.3cm}\par
+			\printdate
+		\end{center}
+	\end{cover}
+}
