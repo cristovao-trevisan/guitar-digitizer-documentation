@@ -149,13 +149,17 @@ as in \autoref{reducers-table}.
 
 \subsubsection{Note Calculation}
 The flow chart in \autoref{note-detection-diagram} presents how the note calculation
-process work. The amplitude calculation is an absolute average removing the mean, as in
+process work. The amplitude calculation is an absolute average removing the mean (\autoref{mean-calculation-equation}), as in
 \autoref{amplitude-calculation-equation}. The \textit{pitch within range} is a function that limits
 each string frequency to being close to it's known possible values, as in \autoref{pitch-range-table}.
 \begin{equation}
-  \label{amplitude-calculation-equation}
-  Mean = \frac{\sum_{i=0}^{N}{\left | x_{i} \right |}}{N}\\
-	Amplitude = \frac{\sum_{i=0}^{N}{\left | x_{i} - Mean \right |}}{N}\end{equation}
+  \label{mean-calculation-equation}
+  Mean = \frac{\sum_{i=0}^{N}{\left | x_{i} \right |}}{N}
+\end{equation}
+\begin{equation}
+	\label{amplitude-calculation-equation}
+	Amplitude = \frac{\sum_{i=0}^{N}{\left | x_{i} - Mean \right |}}{N}
+\end{equation}	
 \begin{figure}[htb]
 	\caption{Note Detection Diagram}
 	\label{note-detection-diagram}
