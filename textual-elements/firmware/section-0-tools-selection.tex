@@ -46,11 +46,10 @@ There are too many microcontrollers that fit our requirements, but the most popu
 and cheap one is clearly the ARM from ST called STM32F103C8T6 \cite{STM32F103},
 and that is why it was selected. 
 
-It has eight 12 bits ADC inputs (with 2 parallel channels), DMA for the ADCs and USB full-speed support. It's
-also relatively fast (72 MHz clock, 32 bits architecture). All this for under 2 US\$
-in a developing board from China (the actual $\mu$C is under 0.2 U\$). 
-
-The board an it's pinout can be seen in \autoref{STM32F103-board}.
+It has eight 12 bits ADC inputs (with 2 parallel channels), DMA for the ADCs and USB full-speed support. It is
+also relatively fast (72 MHz clock, 32 bits architecture). All this for under US\$ 2
+in a developing board from China (the actual $\mu$C is under 0.2 U\$).
+The board's pinout can be seen in \autoref{STM32F103-board}.
 
 \begin{figure}[htb]
   \centering
@@ -63,9 +62,9 @@ The board an it's pinout can be seen in \autoref{STM32F103-board}.
 \subsection{Sample Frequency}
 \label{firmware-sample-frequency}
 Usage of the ADCs for the selected $\mu$C can be optimized by using continuous sampling
-mode in conjunction with DMA \cite[ch. 11]{STM32F103}. In this mode the sample frequency is controlled by a register
-that sets the convolution time, which gives more precision the more ADC clock
-cycles (longer) it takes to sample.
+mode in conjunction with DMA \cite[ch. 11]{STM32F103}. In this mode, the sample frequency is controlled by a register
+that sets the \textit{convolution time}. The convolution time is the amount of time
+the ADC takes to sample. The longer it is (more ADC clock cycles) the better the resulting precision.
 
 The first variable chosen for this setup is the ADC clock, which is set by dividing
 the $\mu$C clock by 2, 4, 6 or 8. The ADC also has a maximum clock of 14 MHz. Taking in
@@ -77,8 +76,9 @@ value plus 12.5 ADC clock cycles), which gives a sample frequency calculate by \
 
 \begin{equation}
   \label{ADC-sampling-time}
-  f_{s} = \frac{ADC\ clock}{T_{c} + 12.5}  * \frac{ADCs}{channels} = \frac{12}{T_{c} + 12.5}  * \frac{2}{6}\ [MHz]
+  f_{s} = \frac{ADC\ clock}{T_{c} + 12.5}  * \frac{Parallel ADCs}{channels} = \frac{12}{T_{c} + 12.5}  * \frac{2}{6}\ [MHz]
 \end{equation}
+
 \autoref{ADC-sampling-frequencies} shows the calculated results for each possible
 register value (using \autoref{ADC-sampling-time}). Based on it the chosen sampling
 frequency is 47.619 kHz. By using \autoref{usb-numerical-rate-equation} we can also

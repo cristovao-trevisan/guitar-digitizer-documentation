@@ -20,7 +20,7 @@ As it was taken MiniScope as a base project it will be used the same IDE as it, 
 CooCox \cite{CooCox}. It has a full set of tools, and it's completely free (no limitations).
 
 \subsection{Modifications}
-The base project samples 2 channels at a different speed, bit rate and does not
+The base project, MiniScope, samples 2 channels at a different speed, bit rate and does not
 add any headers to the data. It also has some code to answer a few commands. It
 was as simple as setting up the registers for 6 channels, changing the sample size,
 placing the already chosen speed (\autoref{firmware-sample-frequency}) and removing
@@ -32,12 +32,12 @@ the USB buffer. What was done is to change the bits alignment and putting all
 the data received from the ADC to the USB buffer.
 
 \subsection{Testing}
-At first an attempt using the OS (Windows at that time, later Ubuntu) default driver
-as made. That did not work well, as it is too generic and thus slow. 
+A first attempt using the OS (Windows at that time, later Ubuntu) default driver
+was made. That did not work well, as it is too generic and thus slow. 
 
 At a second try, a simple libusb \cite{libusb} program was built to test the transfer
-rate (calculated in \autoref{firmware-sample-frequency}). The reported result is
+rate (calculated in \autoref{firmware-sample-frequency}). The received data rate matched
 almost perfectly the calculated one.
 
 \subsubsection{Repository}
-Again, all code is available at GitHub \cite{guitar-digitizer-firmware}.
+All code is available at GitHub \cite{guitar-digitizer-firmware}.
