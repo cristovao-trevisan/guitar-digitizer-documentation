@@ -5,6 +5,8 @@ well for the musical instrument signal in order to be further acquired by the
 microcontroller ADC, digitizing the signal as expected.
 The project proved to be challenging -- completely assembling a
 hexaphonic pickup and the amplifier system, but it has performed successfully.
+The resulting firmware may be considered final, as it meets all of our
+current requirements perfectly.
 
 Real time note detection proved not to be so accurate. Legato (connected) notes
 may cause a middle note detection and there are miss-detections (mostly at frequency
@@ -33,23 +35,23 @@ efficient, even if not yet to that point.
 \section{Future Work}
 
 \subsection{Hardware}
-For the future and thinking on production it is thought to test some INA326 IC
-for other supplier, as the imported from Chinese suppliers, to verify if the results
-are acceptable as the prototype amplifier, this change is thinking on low the cost,
-but thinking on quality maintenance.
-With this change other could be performed, as change all the through-hole components
-by the surface mount (SMD). This should low the costs and could lower the board dimensions.
-Other change that could be performed is change the trimmers potentiometers by programmable
-resistors, this change will be responsible by adjust the amplifier gain automatically.
-It is ideal to perform the magnet wrapping automatically. This improvement will help on time
-production, component quality, component cost and component dimensions.
-Other improvement is to communicate with the firmware using wireless communication,
-this advance will bring more mobility to the gadget, because the firmware will not more be
-assembled on the PCB, which signifies that it will not have the PC connection cable from the guitar.
+For the future, thinking about production ready devices, it is needed to test INA326 ICs
+from other suppliers. Using chinese versions of the same IC, it might be possible to
+drastically reduce costs without changing the main amplifier circuit.
+Also to change the through-hole components to the surface mount (SMD), for a cheaper and higher
+quality  product. This would also lower the board dimensions, making the product more compact.
+Another option is to test other amplifier circuits, that are cheaper and still meet our requirements.
+
+A crucial change would also be to change from trimmers potentiometers to programmable
+resistors, making the gain adjustment automatic.
+It is also ideal to perform the magnet wrapping automatically. This last improvement will increase
+component quality, passive signal output and also make it possible
+to add more turns by using a thinner wire, making a final product of much higher quality.
 
 \subsection{Software}
 \begin{itemize}
-  \item \textbf{Note Detection}: For real world music notation a different solution is needed: record the signals
+  \item \textbf{Note Detection}: For real world music notation a different solution
+  is needed: record the signals
   and post-process them. This way it is possible to use a more detailed analysis
   of each signal and thus get very good results, as there is much more computing
   power available when not being limited by real-time processing.  
