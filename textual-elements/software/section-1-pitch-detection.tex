@@ -48,31 +48,34 @@ non-trivial algorithms for pitch detection, and two of them will be discussed ne
 \end{figure}
 
 \subsection{YIN algorithm}
-Autocorrelation is a well know technique to calculate a signal's fundamental
+Difference function is a well know time domain technique to calculate a signal's fundamental
 frequency, however it's sole usage does not deliver satisfactory accuracy for this project.
-YIN \cite{YINArticle} is a method that provide improvements to the autocorrelation method, achieving
+YIN \cite{YINArticle} is a method that provide improvements to the difference function method, achieving
 a much higher precision. It can also be implemented with logarithmic growth as the
-autocorrelation can be calculated using the FFT and IFFT algorithms. The algorithm
-can be divided in 6 steps, as follows:
+difference function can be calculated using the FFT and IFFT algorithms. The algorithm
+can be divided in 5 steps, 4 which are implemented, as follows:
 \begin{enumerate}
-  \item Autocorrelation
-  \item Difference
+  \item Difference Function
   \item Cumulative mean normalized difference
   \item Absolute threshold
   \item Parabolic interpolation
-  \item Best local estimate
+  \item Best local estimate (not implemented yet)
 \end{enumerate}
 It's important to notice that the absolute threshold is a controlled attempt to regulate
 the error introduced by the harmonic series (as in \autoref{harmonic-series}),
-it thus gives preference to lower frequencies (below the threshold).
+thus it gives preference to lower frequencies (below the threshold).
 
 \subsection{MacLeod algorithm}
-MacLeod \cite{MacLeodArticle} goes for another approach, using the square difference
+MacLeod \cite{MacLeodArticle} goes for a similar approach, using the square difference
 function. More precisely it uses a special normalized version of it. The best result
-is then calculated by means of using a parabolic interpolation of the highest
-peak and its two neighbors, this process also gives a threshold constant that limits
-the detection of the neighbors, and thus the possibility of some tuning. As we will
-see this gave the best results for our project after some tuning.
+is then calculated choosing the best peak. This is done by means of using a parabolic
+interpolation of the highest peak and its two neighbors, this process also gives a
+threshold constant that limits the detection of the neighbors, and thus the possibility of some tuning.
+It can be divided in two steps:
+\begin{enumerate}
+  \item Normalized Square Difference Function
+  \item Peak Picking (Using parabolic interpolation of neighbors)
+\end{enumerate}
 
 \subsection{Implementation}
 \label{pitch-detection-implementation}
