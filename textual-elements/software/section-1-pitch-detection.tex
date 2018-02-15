@@ -72,10 +72,14 @@ is then calculated choosing the best peak. This is done by means of using a para
 interpolation of the highest peak and its two neighbors, this process also gives a
 threshold constant that limits the detection of the neighbors, and thus the possibility of some tuning.
 It can be divided in two steps:
+
 \begin{enumerate}
   \item Normalized Square Difference Function
   \item Peak Picking (Using parabolic interpolation of neighbors)
 \end{enumerate}
+
+The normalized square difference function can also be calculated using FFT and IFFT
+for logarithmic growth.
 
 \subsection{Implementation}
 \label{pitch-detection-implementation}
