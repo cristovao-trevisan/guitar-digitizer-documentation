@@ -15,9 +15,9 @@ The designed pickup used the following main components:
   \item Cover to attach the set up on the guitar
 \end{itemize}
 
-After some studies it was decided to build the pickup base using a 3D printer, due the
-availability and reduced cost of this project. The model is showed on \autoref{3D-project}
-and was projected using the AutoCAD software.
+After some studies it was decided to build the pickup base using a 3D printer, due to
+availability and reduced cost of this project. The model on \autoref{3D-project}
+was projected using the AutoCAD software.
 
 \begin{figure}[!htpb]
 \centering
@@ -30,8 +30,8 @@ and was projected using the AutoCAD software.
 There were two materials available to print the model, \textit{PLA} (Polylactic Acid)
 and \textit{ABS} (Acrylonitrile Butadiene Styrene) \cite{3d-materials}. It was decided to print
 the model on PLA because it attends the requisites of robustness of the project, is
-faster to print and have a lower cost when compared to the other materials. The built part is showed on
-\autoref{3D-base}
+faster to print and have a lower cost when compared to the other materials. The built part is
+as in \autoref{3D-base}
 
 \begin{figure}[!htpb]
 \centering
@@ -60,14 +60,15 @@ and 12 mm length) and the estimated area of a wire turn it is possible to calcul
 as in \autoref{wire-diameter-equation} - resulting in a diameter of 0.17 mm, that can be
 converted to 34 AWG, approximately. 
 
-This diameter (number of turns) is only feasible with an automated process. The present project was built by manually
+This number of turns is only feasible with an automated process. The present project was built by manually
 wrapping copper wire around each magnet (\autoref{magnets}), so only 500 turns were feasible. 
 
 After mounting the coils, as showed on \autoref{coils} it was performed a test to verify the real voltage value induced by
 the variation of the magnetic field. It was used the LM 741 \cite{LM741} with a gain of 10,
 because it wasn't possible to verify the value on the coil output. With this simple test circuit
 it was possible to verify that the output value on the IC was 8 mV, this value indicate that the
-output value on the coil is around 1 mV.
+output value on the coil is around 1 mV (800 $\mu$V actually, but may vary with the distance between the
+pickup and the strings, so we take only the order of magnitude).
 
 \begin{figure}[!htpb]
   \centering

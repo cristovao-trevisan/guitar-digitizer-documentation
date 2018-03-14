@@ -34,16 +34,17 @@ rate numerical result is given by \autoref{usb-numerical-rate-equation}.
 \end{equation}
 
 USB transfer speed is usually referred in Mbps, which gives a range between
-961.27 and 4806.34 Mbps. This is too high for serial communication (typical max of
-1 Mbps) so we need to add a requirement for raw USB support, which allows \textit{bulk transfers}
+0.97 and 4.8 Mbps. This is too high for serial communication (typical max of
+1 Mbps for reliable transfers with no error) so we need to add a requirement for raw USB support, which allows \textit{bulk transfers}
 that can a have transfer rate up to 12Mbps (USB full-speed standard).
 
 It's still needed to choose or exact sample rate ($f_{s}$), but it is first necessary
 select which hardware will be used.
 
 \subsection{Microcontroller Selection}
-There are too many microcontrollers that fit our requirements, but the most popular
-and cheap one is clearly the ARM from ST called STM32F103C8T6 \cite{STM32F103},
+There are too many microcontrollers that fit our requirements, but one of most popular
+and cheap options available (by searching \"arm microcontroller board\" on AliExpress)
+is the ARM from ST called STM32F103C8T6 \cite{STM32F103},
 and that is why it was selected. 
 
 It has eight 12 bits ADC inputs (with 2 parallel channels), DMA for the ADCs and USB full-speed support. It is
@@ -83,7 +84,7 @@ value plus 12.5 ADC clock cycles), which gives a sample frequency calculate by \
 register value (using \autoref{ADC-sampling-time}). Based on it the chosen sampling
 frequency is 47.619 kHz. By using \autoref{usb-numerical-rate-equation} we can also
 calculate the actual data transfer rate (for all channels, including header),
-resulting in a total of 572,185 kHz. This last value will be used to test the USB communication.
+resulting in a total of 572.185 kB/s. This last value will be used to test the USB communication.
 
 \begin{table}[htb]
   \caption{ADC Sampling Frequencies}
