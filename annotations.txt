@@ -1,0 +1,25 @@
+-> Estilo Técnico
+-> Musica evoluiu? Não afirmar este tipo de coisa
+-> Todos usam midi? Todos mesmo?
+OK -> Preço estimado não contam com o "mundo real"
+OK -> Afirmações sobre preço de anotação musical geram dúvidas
+OK -> Retirar caixa uC
+-> Referenciar definição de pitch detection
+-> Filtro pré enfase
+-> Melhorar resultados
+OK -> Guitar -> Electric Guitar
+
++/- -> Generalizações -> Remover espicificidade 
+-> Não usar perfeito/definição geral não científica
+-> Explicar números empíricos
+-> Informalidade (super cheap)
+
+-> Simplicidade é relativa
+-> Ressaltar algumas parte para leigos
+-> Escolha dos testes
+-> 4 notas/s é rápido?
+-> Introdução de música (sobre guitarra, afinação, notas)
+OK -> Comparar os valores de preço com guitarra para ter uma ordem de grandeza
+-> Comparar os gráficos do plotter com osciloscópio
+
+-> Escolhas são ainda mais importantes (ex.: AMPOP)
