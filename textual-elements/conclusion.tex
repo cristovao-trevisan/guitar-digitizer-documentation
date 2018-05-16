@@ -4,14 +4,14 @@ The hardware project showed be reliable and robust. The amplification worked
 well for the musical instrument signal in order to be further acquired by the
 microcontroller ADC, digitizing the signal as expected.
 The project proved to be challenging -- completely assembling a
-hexaphonic pickup and the amplifier system, but it has performed successfully.
+hexaphonic pickup and the amplifier system.
 The resulting firmware may be considered final, as it meets all of our
-current requirements perfectly.
+current requirements.
 
 Real time note detection proved not to be so accurate. Legato (connected) notes
 may cause a middle note detection and there are miss-detections (mostly at frequency
 transitions). It works well enough for live play of MIDI instruments, but not
-for music notation. It has a lot of room for improvement, and the means to achieve
+for music notation. It has room for improvement, and the means to achieve
 it are discussed next.
 
 Even if not having robustness to be a commercial product this project is still a big source
@@ -28,9 +28,10 @@ The area of musical signal processing proved to be as complex as it popularly sa
 Still with a fair amount of effort made it is possible to use it in a real world application,
 even for non-specialists in signal processing, like ourselves.
 
-Finally our project was fun to build and even more fun to use and play with, and achieved
-the desired result of showing that it is possible to make guitar digitization cheap and
-efficient, even if not yet to that point.
+Finally, we would like to mention that our personal experience along the project development was
+extremely positive - it was a pleasure to both build and to play with the final prototype. Not
+less important is the fact that the proposed goal was successfully achieved: to show that it
+is possible to make guitar digitization cheap and efficient, even if not yet to that point.
 
 \section{Future Work}
 
@@ -48,36 +49,36 @@ It is also ideal to perform the magnet wrapping automatically. This last improve
 component quality, passive signal output and also make it possible
 to add more turns by using a thinner wire, making a final product of much higher quality.
 
+
 \subsection{Software}
 \begin{itemize}
-  \item \textbf{Note Detection}: For real world music notation a different solution
-  is needed: record the signals
-  and post-process them. This way it is possible to use a more detailed analysis
+  \item \textbf{Music Annotation}: For real world applications where an accurate and
+  robust music notation is needed, a reasonable suggestion is to record the audio signals and
+  post-process them. This way it is possible to use a more detailed analysis
   of each signal and thus get very good results, as there is much more computing
-  power available when not being limited by real-time processing.  
-  \item \textbf{Performance}: Though real time analysis work, a few limitations were detected. Buffering can only
+  power available when not being limited by real-time processing.
+
+  \item \textbf{Performance}: Buffering can only
   process each data point one time (can't use a sliding buffer that recycles data).
   This means that we are close to the processing limits, due to two causes: single
   core processing and slow algorithms. 
-  
   One step of the solution is to use multi-core processing for the pitch detection,
   which can be done using Node.js support for it. 
-  
   As already stated (\autoref{pitch-detection-implementation}) the current implementation
   uses quadratic growth algorithms, while it can be improved to logarithmic
   growth. Fixing this will improve the performance to a point where multi-core processing
   won't be even necessary.
+
   \item \textbf{Algorithm Improvements}: A few algorithm modifications may also improve the project's results. Most noticeable
   would be the above mentioned buffering to process each input multiple times, with a
   sliding window - which needs performance improvements first.
-  
-  Another change necessary would be to remove co-channel interference in a more fashioned
+  Another change necessary would be to remove co-channel interference in a more efficient
   way other than amplitude check, making it easier for the pitch detection algorithm to work.
+  A possible approach is the use of \textit{onset detection} algorithms.
   
   \item \textbf{New Features}: A main feature not yet implemented is also necessary: vibrato detection. Vibrato is the
   note's small variation of frequency without changing to another note. This is widely used
   by musicians and needs to be implemented, but has not been considered yet.
-  
   As already mentioned recording will be a breaking change to the system. The ability to have
   more processing power due to not run in real time can greatly improve the system accuracy.
   It also makes possible to look ahead of time to check with more precision a single moment

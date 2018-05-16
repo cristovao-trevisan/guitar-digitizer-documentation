@@ -2,56 +2,68 @@
 
 % summary in english
 \begin{summary}[Abstract]
-This work presents a complete system for electric guitar signal acquisition and processing, in order to translate
-the raw audio signal to the corresponding musical notes. It is important to mention that, while this is
-relatively easy to be accomplished in instruments that have separated keys for each note (e.g. piano),
-this is not the case for instruments like the guitar – the one addressed in this work – that have a single
-output for multiple notes (each string has about 15 notes). The guitar is a harmonic instrument, as it can
-play multiple notes simultaneously, making the translation a challenging task. It is difficult because
-multiple notes might be played at the same time and event the same note at different strings.The proposed
-approach employs a specially designed pickup, developed and constructed by the authors, with dedicated coils for
-each string (in contrast to the single coil regular models). Audio amplifiers based on INA326 OPAMPs
-condition the coils’ signals, which are further converted to digital by an acquisition module based on an
-ARM Cortex M3 microcontroller, model STM32F103C8T6. The digital samples are transferred to a PC
-through the USB bus and processed using pitch detection algorithms. The software is based on
-contemporary tools such as Node, NW.js, React+Redux and Functional Programming. Special emphasis
-has been dedicated to the applied nature of the project, in the sense that the goal was to obtain a
-\emph{ready-to-use} prototype, despite the limitations on the accuracy of the final translation. In other
-words, the present work does not focus on state-of-the-art signal processing approaches in order to
-obtain a near perfect translation. Instead, it prioritizes an effective hardware and software architecture
-aiming a completely functional system for real-time guitar signal translation into the corresponding
-notes. Two pitch detection algorithms were evaluated: YIN and McLeod. Results show that each algorithm
-has their own strong and weak points, as both must be considered in the future.
+	TREVISAN, Cristóvão Diniz and ARAUJO, Victor Volochtchuk de.
+	Guitar Digitizer. 2018. 60 f. Final Year Project Report
+	(Undergraduate Course on Electronics Engineering) - Department of Electronics,
+	Federal University of Technology - Paraná. Curitiba, 2018.
 
 
-  \textbf{Key-words}: Electric guitar, signal acquisition, MIDI, pitch detection, hexaphonic.
+	This work presents a complete system for electric guitar signal acquisition and processing, in order to translate
+	the raw audio signal to the corresponding musical notes. It is important to mention that, while this is
+	relatively easy to be accomplished in instruments that have separated keys for each note (e.g. piano),
+	this is not the case for instruments like the guitar – the one addressed in this work – that have a single
+	output for multiple notes (each string has about 15 notes). The guitar is a harmonic instrument, as it can
+	play multiple notes simultaneously, making the translation a challenging task. It is difficult because
+	multiple notes might be played at the same time and event the same note at different strings.The proposed
+	approach employs a specially designed pickup, developed and constructed by the authors, with dedicated coils for
+	each string (in contrast to the single coil regular models). Audio amplifiers based on INA326 OPAMPs
+	condition the coils’ signals, which are further converted to digital by an acquisition module based on an
+	ARM Cortex M3 microcontroller, model STM32F103C8T6. The digital samples are transferred to a PC
+	through the USB bus and processed using pitch detection algorithms. The software is based on
+	contemporary tools such as Node, NW.js, React+Redux and Functional Programming. Special emphasis
+	has been dedicated to the applied nature of the project, in the sense that the goal was to obtain a
+	\emph{ready-to-use} prototype, despite the limitations on the accuracy of the final translation. In other
+	words, the present work does not focus on state-of-the-art signal processing approaches in order to
+	obtain a near perfect translation. Instead, it prioritizes an effective hardware and software architecture
+	aiming a completely functional system for real-time guitar signal translation into the corresponding
+	notes. Two pitch detection algorithms were evaluated: YIN and McLeod. Results show that each algorithm
+	has their own strong and weak points, as both must be considered in the future.
+
+
+	\textbf{Key-words}: Electric guitar, signal acquisition, MIDI, pitch detection, hexaphonic.
 \end{summary}
 
 % summary in portuguese
 \begin{summary}[Resumo]
- \begin{otherlanguage*}{portuguese}
-    Este trabalho apresenta um sistema completo para aquisição e processamento dos sinais de guitarra,
-    com o objetivo de converter os sinais analógicos para suas notas correspondentes. Este processo é denominado \emph{transcrição}. 
-    É importante destacar que, embora trate-se de um processo relativamente simples para instrumentos
-    como o piano, este não é o caso para instrumentos como a guitarra (abordada neste trabalho), que tem
-    uma única fonte para múltiplas notas (cada corda com aproximadamente 15 notas). A guitarra é um instrumento
-    harmônico. Desta maneira, pode tocar diversas notas simultaneamente, tornando ainda mais complexa a tradução
-    musical. A proposta deste projeto é utilizar um captador dedicado, projetado e construído pelos autores,
-    com captação dedicada para cada corda (em contraste com os modelos regulares com um único canal - \emph{single coil}).
-    Um amplificador baseado no circuito integrado INA326 condiciona os sinais captados pelos enrolamentos, que são
-    então convertidos para digital em um microcontrolador STM32F103C8T6,
-    um ARM Cortex M3. As amostras digitais são então transferidas para o PC por meio do USB, para o posterior processamento
-    por algoritmos de detecção de frequência.  O programa no PC foi desenvolvido com base em tecnologias atuais como Node.js, NW.js, React+Redux e
-    programação funcional. Foi dedicada atenção especial à natureza aplicada do projeto, no sentido de obter-se
-    um protótipo funcional, apesar das limitações de acurácia no resultado final da transcrição. Em outras palavras, 
-    o foco deste trabalho não é o estudo ou a aplicação do estado da arte em transcrição musical. A prioridade é um sistema completamente funcional
-    para a conversão dos sinais captados da guitarra em notas em tempo real. Dois algoritmos de detecção
-    de frequência foram comparados: YIN e MacLeod. Os resultados mostram que cada algoritmo tem seus pontos
-    fortes e fracos, e por isso ambos devem ser considerados como opção viável no futuro.
-  
-  
-    \textbf{Key-words}: Guitarra, aquisição de sinais, MIDI, detecção de nota, hexafônico.
-  \end{otherlanguage*}
+	\begin{otherlanguage*}{portuguese}
+		TREVISAN, Cristóvão Diniz e ARAUJO, Victor Volochtchuk de. Digitalizador de Guitarra.
+		2018. 60 f. Trabalho de conclusão de curso (Graduação em Engenharia Eletrônica) -
+		Departamento Acadêmico de Eletrônica, Universidade Tecnológica Federal do Paraná.
+		Curitiba, 2018.
+
+
+		Este trabalho apresenta um sistema completo para aquisição e processamento dos sinais de guitarra,
+		com o objetivo de converter os sinais analógicos para suas notas correspondentes. Este processo é denominado \emph{transcrição}.
+		É importante destacar que, embora trate-se de um processo relativamente simples para instrumentos
+		como o piano, este não é o caso para instrumentos como a guitarra (abordada neste trabalho), que tem
+		uma única fonte para múltiplas notas (cada corda com aproximadamente 15 notas). A guitarra é um instrumento
+		harmônico. Desta maneira, pode tocar diversas notas simultaneamente, tornando ainda mais complexa a tradução
+		musical. A proposta deste projeto é utilizar um captador dedicado, projetado e construído pelos autores,
+		com captação dedicada para cada corda (em contraste com os modelos regulares com um único canal - \emph{single coil}).
+		Um amplificador baseado no circuito integrado INA326 condiciona os sinais captados pelos enrolamentos, que são
+		então convertidos para digital em um microcontrolador STM32F103C8T6,
+		um ARM Cortex M3. As amostras digitais são então transferidas para o PC por meio do USB, para o posterior processamento
+		por algoritmos de detecção de frequência.  O programa no PC foi desenvolvido com base em tecnologias atuais como Node.js, NW.js, React+Redux e
+		programação funcional. Foi dedicada atenção especial à natureza aplicada do projeto, no sentido de obter-se
+		um protótipo funcional, apesar das limitações de acurácia no resultado final da transcrição. Em outras palavras,
+		o foco deste trabalho não é o estudo ou a aplicação do estado da arte em transcrição musical. A prioridade é um sistema completamente funcional
+		para a conversão dos sinais captados da guitarra em notas em tempo real. Dois algoritmos de detecção
+		de frequência foram comparados: YIN e MacLeod. Os resultados mostram que cada algoritmo tem seus pontos
+		fortes e fracos, e por isso ambos devem ser considerados como opção viável no futuro.
+
+
+		\textbf{Key-words}: Guitarra, aquisição de sinais, MIDI, detecção de nota, hexafônico.
+	\end{otherlanguage*}
 \end{summary}
 
 % ----------------------------- NOT COMPILED -----------------------------------

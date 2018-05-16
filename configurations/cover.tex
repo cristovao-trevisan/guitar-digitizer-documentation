@@ -10,12 +10,21 @@
 \providecommand{\printauthortwo}{}
 \newcommand{\authortwo}[1]{\renewcommand{\printauthortwo}{#1}}
 
+\providecommand{\printcoursenative}{}
+\newcommand{\coursenative}[1]{\renewcommand{\printcoursenative}{#1}}
+
+\providecommand{\printinstitutionnative}{}
+\newcommand{\institutionnative}[1]{\renewcommand{\printinstitutionnative}{#1}}
+
+\providecommand{\printdepartmentnative}{}
+\newcommand{\departmentnative}[1]{\renewcommand{\printdepartmentnative}{#1}}
+
 \renewcommand{\printcover}{
 	\begin{cover}
 		\begin{center}
-			\MakeUppercase{\printinstitution} \\
-			\MakeUppercase{\printcourse} \\
-			\MakeUppercase{\printdepartment} \\
+			\MakeUppercase{\printinstitutionnative} \\
+			\MakeUppercase{\printcoursenative} \\
+			\MakeUppercase{\printdepartmentnative} \\
 		\end{center}
 		\vspace{12pt}
 		\begin{center}
@@ -24,7 +33,7 @@
 		\end{center}
 		\vfill
 		\begin{center}
-			\bfseries\slshape\large
+			\bfseries\large
 			\MakeUppercase{\printtitle}
 		\end{center}
 		\vfill

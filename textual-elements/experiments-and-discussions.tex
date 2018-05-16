@@ -1,31 +1,28 @@
 \chapter{Experiments and Discussions}
-For the quantification of how well our system works we need some measurements.
-Unfortunately one of our input channels is not functioning (corresponding to the
-D string), due to a hardware problems (not identified at the timing of writing this document),
-hence it will be ignored. B string signal has DC noise,
-due to resistor imprecisions (not fixed at the time of these experiments),
-which limits the signal peak to peak value, and so it will have poor performance.
-To make it simple our measurements will be based on mean and standard deviation.
-A few measurements were proposed, as listed bellow and discussed on the following sections. 
+For the assessment of the system we performed the measurements listed below
+\footnote{
+  Unfortunately one of our input channels is not functioning (corresponding to the
+  D string), due to a hardware problems (not identified at the timing of writing this document),
+  hence it will be ignored. B string signal has DC noise,
+  due to resistor imprecisions (not fixed at the time of these experiments),
+  which limits the signal peak to peak value, and so it will have poor performance.
+}.
+Results and discussions are presented in the following sections.
 
 \begin{itemize}
   \item Single Note Accuracy
-  \item Whole Chord Accurracy (E and Am)
+  \item Chord Accurracy (E and Am)
   \item Chromatic Scale Error
   \item Pluck Counting
 \end{itemize}
 
 
 \section{Single Note Accuracy}
-This test is done by hitting a single note in a single string and checking if the right
-frequency is being detected. The amount of detected notes will not be considered in this test.
-The correct note and frequency are as in \autoref{single-note-expected-result}, chosen at random.
-Considering the 8 first note detections, \autoref{single-note-accuracy} was drawn, showing
-the detections for each algorithm. MacLeod's algorithm show more accurate results in this test.
-The mean and standard deviation were also calculated, as in \autoref{single-note-result}.
-MacLeod has a more accurate result, but YIN has a smaller standard deviation.
-Our conclusion is that MacLeod has more accuracy and YIN has better consistency at single note
-detection.
+This test is done by hitting a single note in a single string and checking if the correct
+frequency is detected. Notes were chosen in order to consider a broad frequency band,
+as presented in \autoref{single-note-expected-result}. The amount of detected notes is
+not considered in this experiment. \autoref{single-note-result} and \autoref{single-note-accuracy}
+present the results. MacLeod presents lower errors.
 
 \begin{table}[htb]
   \begin{center}
@@ -74,16 +71,15 @@ detection.
   \legend{Source: Authors}
 \end{figure}
 
-\section{Chord Detection}
-This test was done to detect notes playing simultaneously at multiple strings.
-Two chords were test E major and A minor (Am). The E chord has it's lower note on
+\section{Chord Accuracy (E and Am)}
+This experiment aims to assess the performance of the system when simultaneous notes at multiple string are played.
+The adopted chords are the E major (E) and A minor (Am). The E chord has it's lower note on
 the twelfth fret, to cut off very low frequencies. The Am chord has it's lower note
 on the fifth fret, and so lower frequencies.
 The error rate and standard deviation were calculated for both cases. The error rate is given by
 \autoref{chord-accuracy-equation}. The result can be seen at \autoref{e-chord-error} and \autoref{am-chord-error}, where the
-error is given in percentage but the standard deviation in absolute values.
-Our conclusion is that YIN has better accuracy, except at low frequencies where it
-has huge errors rate.
+error is given in percentage and the standard deviation in absolute values.
+YIN presents lower error, except at low frequencies where it present large error rates.
 
 \begin{equation}
   \label{chord-accuracy-equation}
@@ -92,7 +88,7 @@ has huge errors rate.
 
 \begin{figure}[!htpb]
   \centering
-  \caption{Am Chord Error}
+  \caption{Am chord error}
   \label{am-chord-error}
   \includegraphics[scale=0.85]{images/measurements/am-chord-error}
   \legend{Source: Authors}
@@ -100,63 +96,48 @@ has huge errors rate.
 
 \begin{figure}[!htpb]
   \centering
-  \caption{E Chord Error}
+  \caption{E chord error}
   \label{e-chord-error}
   \includegraphics[scale=0.85]{images/measurements/e-chord-error}
   \legend{Source: Authors}
 \end{figure}
 
 \section{Chromatic Scale Error}
-This is the last note detection experiment and it will try to test the detection
-of notes over time. Each string was played separately by plucking 5 consecutive
-notes (e.g. A, A\#, B, C and C\#) at the speed of approximately 4 notes/s, which
-is a medium speed for guitar playing. To avoid pluck miss-detections in this test, repeated notes
-are grouped into a single detection. The measurements were then compared with the
+This experiment aims to assess the performance of the system on detection of notes over time.
+Each string is played separately by plucking 5 consecutive
+notes (e.g. A, A\#, B, C and C\#) at the speed of approximately 4 notes/s, which can be
+considered an usual speed for guitar playing. To avoid pluck miss-detections in this test, repeated
+notes are grouped into a single detection. The measurements were then compared with the
 expected output, and any miss-detection counted. This test was repeated five times,
 and the mean was taken as the error rate, calculated by dividing the number of 
-errors by the total number of distinct detected notes. The result in \autoref{chromatic-scale-error}
-show that MacLeod has better precision when the time dimension comes to be.
+errors by the total number of distinct detected notes. Results in \autoref{chromatic-scale-error}
+show that MacLeod presents lower errors in this experiment.
 
 \begin{figure}[!htpb]
   \centering
-  \caption{Chromatic Scale Error}
+  \caption{Chromatic scale error}
   \label{chromatic-scale-error}
   \includegraphics[scale=0.85]{images/measurements/chromatic-scale-error}
   \legend{Source: Authors}
 \end{figure}
 
-\section{Pluck Counting}
-At last an experiment was made to test the amplitude detection of the same note.
-By playing a single note 20 times in a row (approximately 4 notes/s again) and counting
-how many notes were actually detected, for each string, and then taking the mean of all strings.
-The result is as in \autoref{pluck-hits-counting}. The results are close, and the conclusion
-is that simple amplitude detection by taking the AC mean of the current window is not enough
-to correctly detect amplitude changes. At least not with the current selected parameters.
-
-\begin{table}[htb]
-  \begin{center}
-    \ABNTEXreducedfont
-    \caption[Pluck Hits Counting]{Pluck Hits Counting}
-    \label{pluck-hits-counting}
-    \begin{tabular}{c|c|c}
-      \hline
-      Correct Value & MacLeod & YIN \\
-      \hline
-      20 & 29.2 & 27 \\
-      \hline
-    \end{tabular}
-    \legend{Source: authors}
-  \end{center}
-\end{table}
+\section{Pluck Counting} \label{pluck-counting}
+In this experiment, several trials of the following procedure are performed for different notes
+from the first up to the tenth fret, for all strings: a single note is played 20 times in a row
+at a 4 notes/s timing. Thus, the expected global mean of the pluck counting, considering, each
+different played note is 20. The obtained values for the MacLeod and YIN were, respectively,
+29.9 and 27, corresponding to a 42\% average error. This large error suggests that the simple
+amplitude detection by taking the AC mean of the current sampled window is not enough to correctly
+detect amplitude changes and more effective methods can be explored, such as \textit{onset detection}.
 
 \section{Discussions}
-Strings Single Note Accuracy test gave satisfactory results (\autoref{single-note-accuracy}).
+Strings Single Note Accuracy test provided satisfactory results (\autoref{single-note-accuracy}).
 This limited the channel gain which ultimately made this
 channel results lower than the others. The same analysis is true for
 all other experiments.
 
 Both the chord detection experiments (\autoref{am-chord-error}, \autoref{e-chord-error}) gave reasonable results, but they
-show our system still has lots of room for improvement. The exception is for
+show that our system still has lots of room for improvement. The exception is for
 the E string error on the Am chord using the YIN algorithm. The reason
 for this is that YIN is not working well for low frequency notes, because
 it still needs a greater period (samples) for analysis, which is not currently
@@ -169,7 +150,7 @@ where a note is changing to the next one is misread as an incorrect result.
 This is a big problem for music annotation, but has the same solution as above,
 which needs performance improvement.
 
-The last test (\autoref{pluck-hits-counting}) also shows our time related issues,
+The last test (\autoref{pluck-counting}) also shows our time related issues,
 that, although being natural, still need to be dealt with, for the same reason above, transitions
 through time that need a larger sample period to work well, also a better algorithm to detect
 amplitude changes. The plucking errors are due to the amplitude detection.
